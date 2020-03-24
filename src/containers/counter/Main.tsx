@@ -16,6 +16,7 @@ interface Props {
   reduxIncreaseCounter: any;
   reduxDecreaseCounter: any;
   counter: number;
+  navigation?: any;
 }
 interface State {}
 
@@ -48,6 +49,11 @@ class Main extends Component<Props, State> {
             <Text style={styles.buttonText}>-</Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => this.props.navigation.popToTop()}>
+          <Text style={styles.backButtonText}>Go To Home</Text>
+        </TouchableOpacity>
       </SafeAreaView>
     );
   }

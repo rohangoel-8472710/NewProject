@@ -2,24 +2,30 @@ import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 
-const RootStack = createStackNavigator();
-const HomeStack = createStackNavigator();
+import Home from '../containers/Home/Home';
+import LoginHandler from '../SocialLoginHandler/LoginHandler';
+import Main from '../containers/counter/Main';
+import TabNavigator from '../containers/TabNavigator/TabNavigator';
+import DrawerNavigator from '../containers/DrawerNavigator/DrawerNavigator';
+const Stack = createStackNavigator();
 
-interface Props {
-    
-}
-interface State {
-    
-}
+interface Props {}
+interface State {}
 
 export default class Navigator extends React.Component<Props, State> {
-    state = {}
+  state = {};
 
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home" headerMode="none">
+          <Stack.Screen name={'Home'} component={Home} />
+          <Stack.Screen name={'Login'} component={LoginHandler} />
+          <Stack.Screen name={'ReduxPresist'} component={Main} />
+          <Stack.Screen name={'TabNavigator'} component={TabNavigator} />
+          <Stack.Screen name={'DrawerNavigator'} component={DrawerNavigator} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
 }

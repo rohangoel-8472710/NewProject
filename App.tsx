@@ -5,15 +5,20 @@ import {Provider} from 'react-redux';
 import Main from './src/containers/counter/Main';
 
 import {store, persistor} from './src/redux/store/store';
-import LoginHandler from './src/SocialLoginHandler/LoginHandler';
-
+import Navigator from './src/navigator/Navigator';
 export default App = () => {
   return (
     // <Provider store={store}>
-    //   <PersistGate persistor={persistor}>
+    // <PersistGate persistor={persistor}>
     //     <Main />
-    //   </PersistGate>
-    // </Provider>
-    <LoginHandler />
+    //    </PersistGate>
+    //  </Provider>
+    //  <LoginHandler />
+    // <Splash />
+    <Provider store={store}>
+      <PersistGate persistor={persistor} loading={null}>
+        <Navigator />
+      </PersistGate>
+    </Provider>
   );
 };

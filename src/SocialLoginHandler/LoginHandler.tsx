@@ -16,7 +16,9 @@ import {
 import styles from './styles';
 import {LinkedInToken} from 'react-native-linkedin';
 import LinkedInModal from 'react-native-linkedin';
-interface Props {}
+interface Props {
+  navigation?: any;
+}
 interface State {
   userInfo: any;
   refreshing: boolean;
@@ -117,27 +119,13 @@ export default class LoginHandler extends Component<Props, State> {
         this.setState({localizedFirstName: undefined, refreshing: false}),
       );
   };
-
-  // linkedInButton = () => {
-  //   return (
-  //     <View
-  //       style={{
-  //         backgroundColor: 'orange',
-  //         padding: 16,
-  //         alignItems: 'center',
-  //         justifyContent: 'center',
-  //       }}>
-  //       <Text>LinkedIn Login</Text>
-  //     </View>
-  //   );
-  // };
   render() {
     const {refreshing, localizedFirstName} = this.state;
     const isLogin = this.state.userInfo.name;
     const buttonText = isLogin ? 'Logout With Facebook' : 'Login From Facebook';
     const onPressButton = isLogin ? this.logoutWithFacebook : this.fbLogin;
     return (
-      <>
+      <View style={styles.mainView}>
         <View style={styles.fbView}>
           <TouchableOpacity
             onPress={onPressButton}
@@ -161,11 +149,12 @@ export default class LoginHandler extends Component<Props, State> {
         <View style={styles.container}>
           <LinkedInModal
             ref={this.modal}
+            shouldGetAccessToken={true}
             clientID={'7891ejh8w0j2h5'}
             clientSecret={'hEGDSxOjKQPyObo9'}
             redirectUri="https://www.google.co.in/"
             onSuccess={this.linkedInLogin}
-            // renderButton={this.linkedInButton}
+            permissions={['r_liteprofile', 'r_emailaddress']}
           />
           {refreshing && <ActivityIndicator size="large" />}
           {localizedFirstName && (
@@ -177,7 +166,12 @@ export default class LoginHandler extends Component<Props, State> {
             </>
           )}
         </View>
-      </>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => this.props.navigation.popToTop()}>
+          <Text style={styles.backButtonText}>Go To Home</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }

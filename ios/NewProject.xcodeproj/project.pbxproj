@@ -194,7 +194,6 @@
 				932FCE516211D52BE0993C15 /* Pods-NewProjectTests.debug.xcconfig */,
 				3C65115D7FAA6C9113C13ABE /* Pods-NewProjectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -309,6 +308,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

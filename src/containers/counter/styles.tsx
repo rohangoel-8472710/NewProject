@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../constants/colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -42,6 +43,19 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: '400',
     color: '#000',
+  },
+  backButton: {
+    backgroundColor: colors.lightBlue,
+    height: 50,
+    width: 200,
+    margin: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  backButtonText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: colors.white,
   },
 });
 

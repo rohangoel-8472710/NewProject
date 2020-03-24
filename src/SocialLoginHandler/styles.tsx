@@ -1,5 +1,11 @@
 import {StyleSheet} from 'react-native';
+import colors from '../constants/colors';
 const styles = StyleSheet.create({
+  mainView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   fbView: {
     flex: 1,
     margin: 80,
@@ -18,8 +24,8 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     marginVertical: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   labelContainer: {
     alignItems: 'flex-end',
@@ -51,6 +57,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  backButton: {
+    backgroundColor: colors.lightBlue,
+    height: 50,
+    width: 200,
+    margin: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // marginTop:70
+  },
+  backButtonText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: colors.white,
   },
 });
 
