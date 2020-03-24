@@ -7,6 +7,7 @@ import LoginHandler from '../SocialLoginHandler/LoginHandler';
 import Main from '../containers/counter/Main';
 import TabNavigator from '../containers/TabNavigator/TabNavigator';
 import DrawerNavigator from '../containers/DrawerNavigator/DrawerNavigator';
+import Splash from '../containers/Splash/Splash';
 const Stack = createStackNavigator();
 
 interface Props {}
@@ -18,7 +19,8 @@ export default class Navigator extends React.Component<Props, State> {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home" headerMode="none">
+        <Stack.Navigator initialRouteName="Splash" headerMode="none">
+          <Stack.Screen name={'Splash'} component={Splash} />
           <Stack.Screen name={'Home'} component={Home} />
           <Stack.Screen name={'Login'} component={LoginHandler} />
           <Stack.Screen name={'ReduxPresist'} component={Main} />

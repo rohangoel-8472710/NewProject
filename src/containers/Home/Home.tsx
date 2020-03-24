@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import SplashScreen from 'react-native-splash-screen';
 
 import styles from './styles';
 interface Props {
@@ -11,9 +10,6 @@ interface State {}
 class Home extends Component<Props, State> {
   state = {};
 
-  componentDidMount() {
-    SplashScreen.hide();
-  }
   render() {
     return (
       <View style={styles.container}>

@@ -51,7 +51,7 @@ class Main extends Component<Props, State> {
         </View>
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => this.props.navigation.popToTop()}>
+          onPress={() => this.props.navigation.navigate('Home')}>
           <Text style={styles.backButtonText}>Go To Home</Text>
         </TouchableOpacity>
       </SafeAreaView>
