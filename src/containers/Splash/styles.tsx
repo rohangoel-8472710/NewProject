@@ -1,20 +1,27 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../constants/colors';
-
+import {vw, vh} from '../../constants/dimensions';
 const styles = StyleSheet.create({
   mainView: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.lightBlue,
   },
-  animatedView: {
-    backgroundColor: colors.lightBlue,
+  splashImage: {
+    width: vw(375),
+    height: vh(667),
   },
   textStyle: {
-    fontSize: 30,
-    textAlign: 'center',
+    fontSize: vw(50),
     color: colors.white,
+    textAlign: 'center',
+    marginTop: vh(60),
+  },
+  innerTextStyle: {
+    fontSize: vw(16),
+    color: colors.white,
+    textAlign: 'center',
+    marginTop: vh(20),
   },
 });
 

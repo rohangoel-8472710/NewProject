@@ -1,7 +1,9 @@
 import React, {useState, useEffect, Component} from 'react';
-import {Animated, Text, View} from 'react-native';
+import {Animated, Text, View, ImageBackground} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import styles from './styles';
+import images from '../../constants/images';
+import strings from '../../constants/strings';
 interface Props {
   navigation?: any;
 }
@@ -34,8 +36,14 @@ export default class Splash extends React.Component<Props> {
   render() {
     return (
       <View style={styles.mainView}>
-        <AnimView style={styles.animatedView}>
+        {/* <AnimView style={styles.animatedView}>
           <Text style={styles.textStyle}>NewProject</Text>
+        </AnimView> */}
+        <AnimView>
+          <ImageBackground style={styles.splashImage} source={images.splash}>
+            <Text style={styles.textStyle}>NewProject</Text>
+            <Text style={styles.innerTextStyle}>{strings.splashText}</Text>
+          </ImageBackground>
         </AnimView>
       </View>
     );
