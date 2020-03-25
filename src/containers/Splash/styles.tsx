@@ -10,12 +10,14 @@ const styles = StyleSheet.create({
   splashImage: {
     width: vw(375),
     height: vh(667),
+    resizeMode:'contain'
   },
   textStyle: {
     fontSize: vw(50),
     color: colors.white,
     textAlign: 'center',
     marginTop: vh(60),
+    fontWeight:'bold'
   },
   innerTextStyle: {
     fontSize: vw(16),

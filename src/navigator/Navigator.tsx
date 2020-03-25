@@ -8,6 +8,7 @@ import Main from '../containers/counter/Main';
 import TabNavigator from '../containers/TabNavigator/TabNavigator';
 import DrawerNavigator from '../containers/DrawerNavigator/DrawerNavigator';
 import Splash from '../containers/Splash/Splash';
+import Tutorial from '../containers/TutorialScreen/Tutorial';
 const Stack = createStackNavigator();
 
 interface Props {}
@@ -26,6 +27,7 @@ export default class Navigator extends React.Component<Props, State> {
           <Stack.Screen name={'ReduxPresist'} component={Main} />
           <Stack.Screen name={'TabNavigator'} component={TabNavigator} />
           <Stack.Screen name={'DrawerNavigator'} component={DrawerNavigator} />
+          <Stack.Screen name={'Tutorial'} component={Tutorial} />
         </Stack.Navigator>
       </NavigationContainer>
     );
