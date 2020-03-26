@@ -5,6 +5,7 @@ const images = {
   tutorial3: require('../assets/Images/ic_loginoption_connect_bg.png'),
   fb: require('../assets/Images/ic_loginoption_fb.png'),
   swipe: require('../assets/Images/ic_loginoption_swipe.png'),
-  linkedin:require('../assets/Images/linkedin.jpg')
+  linkedin: require('../assets/Images/linkedin.jpg'),
+  emailloginimage: require('../assets/Images/ic_email_login_bg.png'),
 };
 export default images;

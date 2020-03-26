@@ -12,6 +12,10 @@ const strings = {
   signUp: 'SIGN UP',
   fbLogin: 'LOGIN WITH FACEBOOK',
   linkedin: 'LOGIN WITH LINKEDIN',
+  emailPlaceholder: 'Email Address/Mobile Number',
+  password: 'Password',
+  forgotPassword:'Forgot Password?',
+  orSign:'or sign in with'
 };
 
 export default strings;

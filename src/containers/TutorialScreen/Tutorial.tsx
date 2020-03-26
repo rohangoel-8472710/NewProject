@@ -11,7 +11,9 @@ import images from '../../constants/images';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import styles from './styles';
 import CustomButton from '../../components/customButton';
-interface Props {}
+interface Props {
+  navigation?: any;
+}
 interface State {
   App: boolean;
 }
@@ -67,7 +69,9 @@ class Tutorial extends Component<Props, State> {
           title={strings.linkedin}
         />
         <View style={styles.signInUPView}>
-          <TouchableOpacity style={styles.signInButton}>
+          <TouchableOpacity
+            style={styles.signInButton}
+            onPress={() => this.props.navigation.navigate('Login')}>
             <Text style={styles.signInText}>{strings.signIn}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.signUpButton}>
