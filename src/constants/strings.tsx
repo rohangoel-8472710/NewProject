@@ -14,8 +14,13 @@ const strings = {
   linkedin: 'LOGIN WITH LINKEDIN',
   emailPlaceholder: 'Email Address/Mobile Number',
   password: 'Password',
-  forgotPassword:'Forgot Password?',
-  orSign:'or sign in with'
+  forgotPassword: 'Forgot Password?',
+  orSign: 'or sign in with',
+  forgotPasswordText:
+    'Enter email address or mobile number to\nreset your password. ',
+  submit: 'SUBMIT',
+  verificationText:
+    'The Verification Code was sent to your\nemail address. Please enter below:',
 };
 
 export default strings;

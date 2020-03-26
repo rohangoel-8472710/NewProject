@@ -7,6 +7,8 @@ interface Props {
   placeholderTextColor?: string;
   onFocus: any;
   onBlur: any;
+  returnKeyType: any;
+  secureTextEntry:any
 }
 
 const CustomInput = (props: Props) => {
@@ -17,6 +19,8 @@ const CustomInput = (props: Props) => {
       placeholderTextColor={props.placeholderTextColor}
       onFocus={() => props.onFocus}
       onBlur={() => props.onBlur}
+      returnKeyType={props.returnKeyType}
+      secureTextEntry={props.secureTextEntry}
     />
   );
 };

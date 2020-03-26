@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     height: vw(50),
     borderWidth: vw(1),
     borderRadius: vw(25),
-    textAlign: 'center',
     marginTop: vw(60),
+    textAlign:'center',
     backgroundColor: colors.textInput,
   },
   textInputPassword: {

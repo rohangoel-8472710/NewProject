@@ -7,5 +7,7 @@ const images = {
   swipe: require('../assets/Images/ic_loginoption_swipe.png'),
   linkedin: require('../assets/Images/linkedin.jpg'),
   emailloginimage: require('../assets/Images/ic_email_login_bg.png'),
+  key: require('../assets/Images/ic_forgot_password_illustration.png'),
+  back:require('../assets/Images/left-arrow.png')
 };
 export default images;

@@ -12,7 +12,9 @@ import strings from '../../constants/strings';
 import colors from '../../constants/colors';
 import CustomInput from '../../components/customInput';
 import CustomLoginButton from '../../components/customLoginButton';
-interface Props {}
+interface Props {
+  navigation?: any;
+}
 interface State {
   bgBorder: number;
 }
@@ -44,6 +46,8 @@ class Login extends Component<Props, State> {
             placeholderTextColor={colors.warmGrey50}
             onFocus={() => this.setState({bgBorder: 1})}
             onBlur={() => this.setState({bgBorder: 0})}
+            returnKeyType="next"
+            secureTextEntry={''}
           />
           <CustomInput
             style={[
@@ -59,12 +63,15 @@ class Login extends Component<Props, State> {
             placeholderTextColor={colors.warmGrey50}
             onFocus={() => this.setState({bgBorder: 2})}
             onBlur={() => this.setState({bgBorder: 0})}
+            returnKeyType="done"
+            secureTextEntry={true}
           />
           <CustomLoginButton
             styleButton={styles.signINButton}
             title={strings.signIn}
           />
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Forgot')}>
             <Text style={styles.forgetPasswordText}>
               {strings.forgotPassword}
             </Text>
