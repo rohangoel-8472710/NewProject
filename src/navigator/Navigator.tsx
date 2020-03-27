@@ -32,7 +32,11 @@ function SettingsScreen() {
 
 function TabBar() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={({route}) => ({tabBarIcon:({focused,color})=>{
+      let iconName;
+      if(route.name === 'Home'){
+      }
+    }})}>
       <Tab.Screen name={'Home'} component={Home} />
       <Tab.Screen name={'Settings'} component={SettingsScreen} />
     </Tab.Navigator>

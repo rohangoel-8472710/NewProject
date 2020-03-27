@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../constants/colors';
-import {vw, vh} from '../../constants/dimensions';
+import {vw, vh, DesignHeight} from '../../constants/dimensions';
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
@@ -29,22 +29,47 @@ const styles = StyleSheet.create({
   },
   searchPin: {
     width: vw(21),
-    height: vh(24),
-    resizeMode: 'contain',
+    height: vw(24),
     marginLeft:vw(21)
   },
   textInput: {
     width: vw(350),
-    height: vw(47),
     borderRadius: vw(23),
+    backgroundColor: colors.textInput,
+    flexDirection: 'row',
+    alignSelf: 'center',
+    top:-15,
+    alignItems: 'center',
+  },
+  searchText: {
+    fontSize: vw(20),
+    paddingLeft: vw(10),
+    paddingVertical: vw(15),
+  },
+  cardView: {
+    paddingTop:vw(14)
+  },
+  cardBox: {
+    width: vw(350),
+    borderRadius: vw(6),
+    backgroundColor: colors.textInput,
     borderWidth: vw(1),
     borderColor: colors.border,
-    backgroundColor: colors.textInput,
-    position: 'absolute',
-    marginTop: vh(60),
-    marginLeft: vw(12),
-    alignItems:'center',
-    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignSelf: 'center',
+    padding: vw(10),
+  },
+  titleText: {
+    fontSize: vw(15),
+    textAlign: 'left',
+    color: colors.black,
+    justifyContent: 'center',
+  },
+  descriptionText: {
+    fontSize: vw(12),
+    textAlign: 'left',
+    color: colors.warmGrey,
+    marginTop: vw(12),
   },
 });
 
