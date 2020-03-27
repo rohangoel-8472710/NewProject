@@ -13,6 +13,8 @@ const colors = {
   textInputBorder: 'rgb(233,233,233)',
   warmGrey50: 'rgba(114,114,114,0.5)',
   darkBlack: 'rgb(81,81,81)',
+  placeHolder: 'rgb(186,186,186)',
+  border: 'rgba(0,0,0,0.13)',
 };
 
 export default colors;

@@ -1,25 +1,50 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../constants/colors';
+import {vw, vh} from '../../constants/dimensions';
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    justifyContent:'space-evenly',
-    alignItems: 'center',
-    backgroundColor:colors.greenish
+  header: {
+    flexDirection: 'row',
+    backgroundColor: colors.waterBlue,
+    justifyContent: 'space-between',
+    width: vw(375),
+    height: vh(73),
   },
-  commonButton: {
-    backgroundColor: colors.orange,
-    borderRadius: 15,
-    width: 200,
-    height: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
+  imageLines: {
+    width: vw(18),
+    height: vh(16),
+    marginLeft: vw(12),
+    resizeMode: 'contain',
+    marginTop: vw(5),
   },
-  buttonText: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    color: colors.white,
+  headerText: {
+    fontSize: vw(21),
+    textAlign: 'left',
+    color: colors.textInput,
+  },
+  searchImage: {
+    width: vw(19),
+    height: vh(19),
+    resizeMode: 'contain',
+    marginRight: vw(12),
+  },
+  searchPin: {
+    width: vw(21),
+    height: vh(24),
+    resizeMode: 'contain',
+    marginLeft:vw(21)
+  },
+  textInput: {
+    width: vw(350),
+    height: vw(47),
+    borderRadius: vw(23),
+    borderWidth: vw(1),
+    borderColor: colors.border,
+    backgroundColor: colors.textInput,
+    position: 'absolute',
+    marginTop: vh(60),
+    marginLeft: vw(12),
+    alignItems:'center',
+    flexDirection: 'row',
   },
 });
 

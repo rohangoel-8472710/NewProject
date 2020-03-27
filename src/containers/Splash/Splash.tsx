@@ -29,7 +29,7 @@ const AnimView = (props: any) => {
 export default class Splash extends React.Component<Props> {
   componentDidMount() {
     setTimeout(() => {
-      this.props.navigation.navigate('Tutorial');
+      this.props.navigation.navigate('Home');
     }, 3000);
   }
 

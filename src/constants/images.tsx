@@ -8,6 +8,11 @@ const images = {
   linkedin: require('../assets/Images/linkedin.jpg'),
   emailloginimage: require('../assets/Images/ic_email_login_bg.png'),
   key: require('../assets/Images/ic_forgot_password_illustration.png'),
-  back:require('../assets/Images/left-arrow.png')
+  back: require('../assets/Images/left-arrow.png'),
+  threelines: require('../assets/Images/ic_home_menu.png'),
+  searchIcon: require('../assets/Images/ic_home_search.png'),
+  homeEnable: require('../assets/Images/ic_home_enable_event.png'),
+  homeSettings: require('../assets/Images/ic_home_enable_map.png'),
+  searchPin: require('../assets/Images/ic_home_search_pin.png'),
 };
 export default images;

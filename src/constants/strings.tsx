@@ -21,6 +21,7 @@ const strings = {
   submit: 'SUBMIT',
   verificationText:
     'The Verification Code was sent to your\nemail address. Please enter below:',
+  Social: 'moresocial',
 };
 
 export default strings;
