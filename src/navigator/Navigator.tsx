@@ -14,6 +14,8 @@ import Tutorial from '../containers/TutorialScreen/Tutorial';
 import Login from '../containers/Login/Login';
 import ForgotPassword from '../containers/ForgotPassword/ForgotPassword';
 import Verifications from '../containers/Verification/Verifications';
+import Maps from '../containers/Map/Maps';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {vw, vh} from '../constants/dimensions';
 import images from '../constants/images';
 const Stack = createStackNavigator();
@@ -32,13 +34,24 @@ function SettingsScreen() {
 
 function TabBar() {
   return (
-    <Tab.Navigator screenOptions={({route}) => ({tabBarIcon:({focused,color})=>{
-      let iconName;
-      if(route.name === 'Home'){
-      }
-    }})}>
+    // <Tab.Navigator
+    //   screenOptions={({route}) => ({
+    //     tabBarIcon: ({focused, color, size}) => {
+    //       let iconName;
+    //       if (route.name === 'Home') {
+    //         iconName = focused
+    //           ? 'ios-information-circle'
+    //           : 'ios-information-circle-outline';
+    //       } else if (route.name === 'Maps') {
+    //         iconName = focused ? 'ios-list-box' : 'ios-list';
+    //       }
+    //       return <Icon name={iconName} size={size} color={color} />;
+    //     },
+    //   })}
+    //   tabBarOptions={{activeTintColor: 'tomato', inactiveTintColor: 'gray'}}>
+    <Tab.Navigator>
       <Tab.Screen name={'Home'} component={Home} />
-      <Tab.Screen name={'Settings'} component={SettingsScreen} />
+      <Tab.Screen name={'Maps'} component={Maps} />
     </Tab.Navigator>
   );
 }

@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=788e4046f3d94b499387882c411ba6a4',
+        'https://newsapi.org/v2/everything?q=noida&apiKey=f194300ab72a42ada0b0454c6de8630b',
       )
       .then(response => {
         console.log(response.data);
@@ -34,18 +34,18 @@ export default function Home() {
     setshowMore(showMore == index ? -1 : index);
   };
 
-  const handleapi = async () => {
-    try {
-      const response = await fetch(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=788e4046f3d94b499387882c411ba6a4',
-      );
-      const responseJson = await response.json();
-      setsearchdata(responseJson.articles);
-      setisLoading(false);
-    } catch (e) {
-      setisLoading(false);
-    }
-  };
+  // const handleapi = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       'https://newsapi.org/v2/everything?q=noida&apiKey=788e4046f3d94b499387882c411ba6a4',
+  //     );
+  //     const responseJson = await response.json();
+  //     setsearchdata(responseJson.articles);
+  //     setisLoading(false);
+  //   } catch (e) {
+  //     setisLoading(false);
+  //   }
+  // };
   return (
     <>
       <SafeAreaView style={styles.header}>
@@ -61,9 +61,9 @@ export default function Home() {
           returnKeyType="search"
           style={styles.searchText}
           placeholder={strings.splashText}
-          onSubmitEditing={() => {
-            handleapi();
-          }}
+          // onSubmitEditing={() => {
+          //   handleapi();
+          // }}
         />
       </View>
       <FlatList

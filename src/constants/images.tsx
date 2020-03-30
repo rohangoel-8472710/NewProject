@@ -14,5 +14,6 @@ const images = {
   homeEnable: require('../assets/Images/ic_home_enable_event.png'),
   homeSettings: require('../assets/Images/ic_home_enable_map.png'),
   searchPin: require('../assets/Images/ic_home_search_pin.png'),
+  marker: require('../assets/Images/ic_home_people_pin.png'),
 };
 export default images;
