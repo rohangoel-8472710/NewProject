@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   searchPin: {
     width: vw(21),
     height: vw(24),
-    marginLeft:vw(21)
+    marginLeft: vw(21),
   },
   textInput: {
     width: vw(350),
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.textInput,
     flexDirection: 'row',
     alignSelf: 'center',
-    top:-15,
+    top: -15,
     alignItems: 'center',
   },
   searchText: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     paddingVertical: vw(15),
   },
   cardView: {
-    paddingTop:vw(14)
+    paddingTop: vw(14),
   },
   cardBox: {
     width: vw(350),
@@ -70,6 +70,34 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     color: colors.warmGrey,
     marginTop: vw(12),
+  },
+  shareButton: {
+    width: vw(50),
+    height: vw(50),
+    backgroundColor: colors.waterBlue,
+    borderRadius: vw(30),
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:vw(20)
+  },
+  shareImage: {
+    width: vw(14),
+    height: vw(17),
+    resizeMode: 'contain',
+  },
+  deleteButton: {
+    width: vw(50),
+    height: vw(50),
+    backgroundColor: 'white',
+    borderRadius: vw(30),
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:vw(20)
+  },
+  deleteImage: {
+    width: vw(13),
+    height: vh(20),
+    resizeMode: 'contain',
   },
 });
 

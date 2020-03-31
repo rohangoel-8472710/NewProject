@@ -15,6 +15,7 @@ const colors = {
   darkBlack: 'rgb(81,81,81)',
   placeHolder: 'rgb(186,186,186)',
   border: 'rgba(0,0,0,0.13)',
+  red: 'rgb(248,68,68)',
 };
 
 export default colors;

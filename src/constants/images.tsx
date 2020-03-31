@@ -15,5 +15,8 @@ const images = {
   homeSettings: require('../assets/Images/ic_home_enable_map.png'),
   searchPin: require('../assets/Images/ic_home_search_pin.png'),
   marker: require('../assets/Images/ic_home_people_pin.png'),
+  share: require('../assets/Images/ic_share.png'),
+  delete: require('../assets/Images/ic_settings_delete.png'),
+  markerImage: require('../assets/Images/ic_pink_pin_glass.png'),
 };
 export default images;

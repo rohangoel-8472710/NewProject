@@ -7,14 +7,26 @@ import {
   TextInput,
   FlatList,
 } from 'react-native';
-import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView from 'react-native-map-clustering';
+import {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import axios from 'axios';
 import styles from './styles';
 import images from '../../constants/images';
 import strings from '../../constants/strings';
-import ResultList from './resultList';
 
+const INITIAL_REGION = {
+  latitude: 52.5,
+  longitude: 19.2,
+  latitudeDelta: 8.5,
+  longitudeDelta: 8.5,
+};
+// const INITIAL_REGION = {
+//   latitude: 28.64688,
+//   longitude: 77.34795,
+//   latitudeDelta: 0.0922,
+//   longitudeDelta: 0.0421,
+// };
 const LATITUDE = 28.64688;
 const LONGITUDE = 77.34795;
 interface Props {}
@@ -27,6 +39,14 @@ interface State {
   searchCoordinates: any;
   lastCoordinates: any;
   sMarker: Array<any>;
+}
+
+function getRandomLatitude(min = 48, max = 56) {
+  return Math.random() * (max - min) + min;
+}
+
+function getRandomLongitude(min = 14, max = 24) {
+  return Math.random() * (max - min) + min;
 }
 
 export default class Maps extends Component<Props, State> {
@@ -118,6 +138,25 @@ export default class Maps extends Component<Props, State> {
   //     />
   //   );
   // };
+
+  _generateMarkers = (count: any) => {
+    const markers = [];
+
+    for (let i = 0; i < count; i++) {
+      markers.push(
+        <Marker
+          key={i}
+          coordinate={{
+            latitude: getRandomLatitude(),
+            longitude: getRandomLongitude(),
+          }}
+          image={images.markerImage}
+        />,
+      );
+    }
+
+    return markers;
+  };
   render() {
     return (
       <>
@@ -158,13 +197,21 @@ export default class Maps extends Component<Props, State> {
           />
         </View>
         <View style={styles.mapContainer}>
-          <MapView
+          {/* <MapView
             provider={PROVIDER_GOOGLE}
             style={styles.map}
-            showsUserLocation={true}
-            initialRegion={this.state.region}
-            onRegionChange={region => this.onRegionChange(region)}>
+            // showsUserLocation={true}
+            initialRegion={this.state.region}>
             <Marker coordinate={this.state.region} image={images.marker} />
+            {this._generateMarkers(10)}
+          </MapView> */}
+          <MapView
+            initialRegion={INITIAL_REGION}
+            style={styles.map}
+            provider={PROVIDER_GOOGLE}
+            image={images.marker}
+            zoomEnabled={true}>
+            {this._generateMarkers(10)}
           </MapView>
         </View>
       </>
