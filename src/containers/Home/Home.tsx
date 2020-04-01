@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
-  Platform,
+  ActivityIndicator,
 } from 'react-native';
 import images from '../../constants/images';
 import strings from '../../constants/strings';
@@ -22,10 +22,12 @@ interface State {}
 export default function Home() {
   const [articles, setarticles] = useState([]);
   const [showMore, setshowMore] = useState(null);
+  const [isFetching, setFetching] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=5c9c6e9765c544a0af51d50a10732efb',
+        'https://newsapi.org/v2/everything?q=noida&apiKey=c0ad59462c884c9b9377e7bc499f814d',
       )
       .then(response => {
         console.log(response.data);
@@ -42,6 +44,12 @@ export default function Home() {
     temp.splice(parseInt(index), 1);
     setarticles(temp.splice(0));
   };
+  const handleRefresh = () => {
+    setRefreshing(true);
+    axios.get(
+      'https://newsapi.org/v2/everything?q=noida&apiKey=fd53e1e17b314370b8d4e2f3337932d2',
+    );
+  };
 
   const ShareApp = async () => {
     const shareOptions = {
@@ -53,52 +61,6 @@ export default function Home() {
     };
     // Share.open(shareOptions);
   };
-  // const openShare = (titles: string, urls: string) => {
-  //   const url = urls;
-  //   const title = titles;
-  //   const message = 'Please check this out.';
-  //   const options = Platform.select({
-  //     ios: {
-  //       activityItemSources: [
-  //         {
-  //           placeholderItem: {type: 'url', content: url},
-  //           item: {
-  //             default: {type: 'url', content: url},
-  //           },
-  //           type: {
-  //             print: {type: 'url', content: url},
-  //           },
-  //           subject: {
-  //             default: title,
-  //           },
-  //           linkMetadata: {originalUrl: url, url, title},
-  //         },
-  //         {
-  //           placeholderItem: {type: 'text', content: message},
-  //           item: {
-  //             default: {type: 'text', content: message},
-  //             message: null, // Specify no text to share via Messages app.
-  //           },
-  //         },
-  //       ],
-  //     },
-  //     default: {
-  //       title,
-  //       subject: title,
-  //       message: `${message} ${url}`,
-  //     },
-  //   });
-
-  //   Share.open(options)
-  //     .then((res: any) => {
-  //       console.log('ok');
-
-  //       console.log(res);
-  //     })
-  //     .catch((err: any) => {
-  //       err && console.log(err);
-  //     });
-  // };
   const rightButtons = [
     <TouchableOpacity
       style={styles.shareButton}
@@ -151,7 +113,6 @@ export default function Home() {
       </View>
       <FlatList
         showsVerticalScrollIndicator={false}
-        bounces={false}
         data={articles}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item, index}) => {
@@ -174,6 +135,10 @@ export default function Home() {
             </View>
           );
         }}
+        pagingEnabled={true}
+        disableIntervalMomentum={true}
+        refreshing={refreshing}
+        onRefresh={handleRefresh}
       />
     </>
   );

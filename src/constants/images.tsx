@@ -18,5 +18,7 @@ const images = {
   share: require('../assets/Images/ic_share.png'),
   delete: require('../assets/Images/ic_settings_delete.png'),
   markerImage: require('../assets/Images/ic_pink_pin_glass.png'),
+  edit: require('../assets/Images/ic_signup_camera.png'),
+  placeHolder:require('../assets/Images/icPicPlaceholder.png')
 };
 export default images;

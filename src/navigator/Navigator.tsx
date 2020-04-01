@@ -15,6 +15,7 @@ import Login from '../containers/Login/Login';
 import ForgotPassword from '../containers/ForgotPassword/ForgotPassword';
 import Verifications from '../containers/Verification/Verifications';
 import Maps from '../containers/Map/Maps';
+import Edit from '../containers/EditProfile/Edit';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {vw, vh} from '../constants/dimensions';
 import images from '../constants/images';
@@ -52,6 +53,7 @@ function TabBar() {
     <Tab.Navigator>
       <Tab.Screen name={'Home'} component={Home} />
       <Tab.Screen name={'Maps'} component={Maps} />
+      <Tab.Screen name={'Edit'} component={Edit} />
     </Tab.Navigator>
   );
 }

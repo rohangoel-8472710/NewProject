@@ -286,6 +286,15 @@ PODS:
     - React
   - RNGestureHandler (1.6.1):
     - React
+  - RNImageCropPicker (0.28.0):
+    - React-Core
+    - React-RCTImage
+    - RNImageCropPicker/QBImagePickerController (= 0.28.0)
+    - RSKImageCropper
+  - RNImageCropPicker/QBImagePickerController (0.28.0):
+    - React-Core
+    - React-RCTImage
+    - RSKImageCropper
   - RNReanimated (1.7.1):
     - React
   - RNScreens (2.4.0):
@@ -294,6 +303,7 @@ PODS:
     - React
   - RNVectorIcons (6.6.0):
     - React
+  - RSKImageCropper (2.2.3)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -336,6 +346,7 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNShare (from `../node_modules/react-native-share`)
@@ -350,6 +361,7 @@ SPEC REPOS:
     - FBSDKShareKit
     - Google-Maps-iOS-Utils
     - GoogleMaps
+    - RSKImageCropper
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -420,6 +432,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/masked-view"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNImageCropPicker:
+    :path: "../node_modules/react-native-image-crop-picker"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -472,10 +486,12 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: e0dd7c8a36543b4ef84969acd9f8aceba3a92dc2
   RNCMaskedView: 76c40a1d41c3e2535df09246a2b5487f04de0814
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
+  RNImageCropPicker: cf129d17e042ce3e96fb9ada967c28f21f977c82
   RNReanimated: 4e102df74a9674fa943e05f97f3362b6e44d0b48
   RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
   RNShare: c19dbe4a7224098cd3cfc4d3b92c886ca817b3f0
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
+  RSKImageCropper: a446db0e8444a036b34f3c43db01b2373baa4b2a
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: 4da0b36b19741006a949a9a443c950ecdaa913e8
