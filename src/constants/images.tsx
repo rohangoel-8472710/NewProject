@@ -19,6 +19,9 @@ const images = {
   delete: require('../assets/Images/ic_settings_delete.png'),
   markerImage: require('../assets/Images/ic_pink_pin_glass.png'),
   edit: require('../assets/Images/ic_signup_camera.png'),
-  placeHolder:require('../assets/Images/icPicPlaceholder.png')
+  placeHolder: require('../assets/Images/icPicPlaceholder.png'),
+  sideMenu: require('../assets/Images/icSideMenu.png'),
+  chatBack: require('../assets/Images/icBackBtn.png'),
+  send:require('../assets/Images/icSend.png')
 };
 export default images;

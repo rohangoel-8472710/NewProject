@@ -16,6 +16,9 @@ import ForgotPassword from '../containers/ForgotPassword/ForgotPassword';
 import Verifications from '../containers/Verification/Verifications';
 import Maps from '../containers/Map/Maps';
 import Edit from '../containers/EditProfile/Edit';
+import SignUp from '../containers/SignUp/signUp';
+import Chatlist from '../containers/Chat/ChatList/ChatList';
+import ChatMain from '../containers/Chat/ChatMain/ChatMain';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {vw, vh} from '../constants/dimensions';
 import images from '../constants/images';
@@ -24,14 +27,6 @@ const Tab = createBottomTabNavigator();
 
 interface Props {}
 interface State {}
-
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
 
 function TabBar() {
   return (
@@ -54,6 +49,7 @@ function TabBar() {
       <Tab.Screen name={'Home'} component={Home} />
       <Tab.Screen name={'Maps'} component={Maps} />
       <Tab.Screen name={'Edit'} component={Edit} />
+      <Tab.Screen name={'Messages'} component={Chatlist} />
     </Tab.Navigator>
   );
 }
@@ -75,6 +71,8 @@ export default class Navigator extends React.Component<Props, State> {
           <Stack.Screen name={'Login'} component={Login} />
           <Stack.Screen name={'Forgot'} component={ForgotPassword} />
           <Stack.Screen name={'Verification'} component={Verifications} />
+          <Stack.Screen name={'SignUp'} component={SignUp} />
+          <Stack.Screen name={'Chat'} component={ChatMain} />
         </Stack.Navigator>
       </NavigationContainer>
     );

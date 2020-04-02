@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "454056229515",
+    "firebase_url": "https://newproject-6655b.firebaseio.com",
+    "project_id": "newproject-6655b",
+    "storage_bucket": "newproject-6655b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454056229515:android:1834ce88240e89ee82328e",
+        "android_client_info": {
+          "package_name": "com.newproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454056229515-3jtrjn3oj3cipopocg0vf7588b5m55oa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1RwUZBRsBHOtmSB6L6H8qCG5gLnhzAYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454056229515-3jtrjn3oj3cipopocg0vf7588b5m55oa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "454056229515-qpuuq6383b3g4j01mi3iepp97gr3simu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.NewProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

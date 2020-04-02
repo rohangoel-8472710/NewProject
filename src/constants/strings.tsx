@@ -22,7 +22,9 @@ const strings = {
   verificationText:
     'The Verification Code was sent to your\nemail address. Please enter below:',
   Social: 'moresocial',
-  Edit:'Edit Profile'
+  Edit:'Edit Profile',
+  shembe:'Shembe',
+  Chats:'Chats'
 };
 
 export default strings;

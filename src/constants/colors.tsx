@@ -16,6 +16,10 @@ const colors = {
   placeHolder: 'rgb(186,186,186)',
   border: 'rgba(0,0,0,0.13)',
   red: 'rgb(248,68,68)',
+  tealBlue: 'rgb(1,167,163)',
+  greyish: 'rgb(244,244,244)',
+  blackish:'rgb(35,35,35)',
+  chatGreen: 'rgb(4,131,123)',
 };
 
 export default colors;

@@ -2,13 +2,13 @@ import {StyleSheet} from 'react-native';
 import colors from '../../constants/colors';
 import {vw, vh} from '../../constants/dimensions';
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   imageStyle: {
     width: vw(375),
     height: vh(667),
+  },
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   heading: {
     fontSize: vw(60),
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     borderWidth: vw(1),
     borderRadius: vw(25),
     marginTop: vw(60),
-    textAlign:'center',
+    textAlign: 'center',
     backgroundColor: colors.textInput,
     borderColor: colors.textInputBorder,
   },
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     borderWidth: vw(1),
     borderColor: colors.textInputBorder,
   },
-  signINButton: {
+  signUpButton: {
     width: vw(140),
     height: vw(43),
     borderRadius: vw(21),
@@ -52,62 +52,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: vw(22),
   },
-  forgetPasswordText: {
-    textAlign: 'left',
+  textSingUp: {
     fontSize: vw(14),
-    color: colors.warmGrey,
+    textAlign: 'center',
+    color: colors.textInput,
   },
-  orSignInText: {
-    textAlign: 'left',
-    fontSize: vw(14),
-    color: colors.darkBlack,
-    marginVertical: vw(89),
-  },
-  buttonView: {
+  indicator: {
     flexDirection: 'row',
-  },
-  fbButton: {
-    width: vw(42),
-    height: vw(42),
-    backgroundColor: colors.fbBlue,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: vw(20),
+    paddingTop: vw(5),
   },
-  fbImage: {
-    width: vw(11),
-    height: vw(21),
-  },
-  linkedInButton: {
-    width: vw(42),
-    height: vw(42),
-    backgroundColor: colors.pink,
-    marginLeft: vw(20),
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: vw(20),
-  },
-  linkedInImage: {
-    width: vw(21),
-    height: vw(21),
-  },
-  dontHaveText: {
-    fontSize: vw(14),
-    textAlign: 'left',
-    color: colors.black,
-    marginVertical:vw(36)
-  },
-  SignUpText: {
-    fontSize: vw(14),
-    textAlign: 'left',
-    color: colors.waterBlue,
-    marginVertical:vw(36)
-  },
-  signInText:{
-    fontSize:vw(14),
-    textAlign:'center',
-    color:colors.textInput
-  }
 });
 
 export default styles;

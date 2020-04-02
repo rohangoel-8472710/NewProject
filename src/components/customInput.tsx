@@ -8,7 +8,10 @@ interface Props {
   onFocus: any;
   onBlur: any;
   returnKeyType: any;
-  secureTextEntry:any
+  secureTextEntry:any;
+  onSubmitEditing:any;
+  onChangeText:any;
+  ref:any
 }
 
 const CustomInput = (props: Props) => {
@@ -21,6 +24,9 @@ const CustomInput = (props: Props) => {
       onBlur={() => props.onBlur}
       returnKeyType={props.returnKeyType}
       secureTextEntry={props.secureTextEntry}
+      onSubmitEditing={props.onSubmitEditing}
+      onChangeText={props.onChangeText}
+      ref={props.ref}
     />
   );
 };
