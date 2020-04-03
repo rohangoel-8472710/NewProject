@@ -91,6 +91,7 @@ export default class SignUp extends Component<Props, State> {
             onSubmitEditing={() => {
               this.secondInput.focus();
             }}
+            autoCapitalize='none'
           />
           <TextInput
             style={styles.textInputPassword}

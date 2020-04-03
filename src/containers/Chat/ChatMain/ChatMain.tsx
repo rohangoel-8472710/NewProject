@@ -1,17 +1,29 @@
 import React, {Component} from 'react';
 import {View, TouchableOpacity, Image} from 'react-native';
-import {GiftedChat, InputToolbar, Bubble} from 'react-native-gifted-chat';
+import {
+  GiftedChat,
+  InputToolbar,
+  Bubble,
+  Composer,
+} from 'react-native-gifted-chat';
 import images from '../../../constants/images';
 import {vh, vw} from '../../../constants/dimensions';
 import styles from './styles';
+import strings from '../../../constants/strings';
 interface Props {
   navigation?: any;
 }
-interface State {}
+interface State {
+  messages: any;
+}
 
 export default class ChatMain extends Component<Props, State> {
-  state = {};
-
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      messages: [],
+    };
+  }
   renderSend = () => {
     return (
       <>
@@ -46,6 +58,20 @@ export default class ChatMain extends Component<Props, State> {
     );
   };
 
+  renderChatFooter = () => {
+    return <View style={styles.chatFooter} />;
+  };
+
+  renderComposer = (props: any) => {
+    return (
+      <Composer
+        {...props}
+        textInputStyle={styles.inputContainer}
+        placeholder={strings.typeMsg}
+      />
+    );
+  };
+
   render() {
     return (
       <>
@@ -60,11 +86,16 @@ export default class ChatMain extends Component<Props, State> {
           </View>
         </View>
         <GiftedChat
-          minComposerHeight={vh(45)}
-          maxComposerHeight={vh(75)}
+          minComposerHeight={vw(45)}
           renderSend={this.renderSend}
+          messages={this.state.messages}
           renderInputToolbar={this.renderInputToolbar}
           renderBubble={this.renderBubble}
+          renderChatFooter={this.renderChatFooter}
+          renderComposer={this.renderComposer}
+          showAvatarForEveryMessage={false}
+          renderAvatarOnTop={true}
+          showUserAvatar={true}
         />
       </>
     );

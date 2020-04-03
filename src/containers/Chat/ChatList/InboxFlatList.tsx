@@ -19,9 +19,7 @@ export default class InboxFlatList extends Component<Props, State> {
         <>
           <Image style={styles.profileImg} source={images.placeHolder} />
         </>
-        <TouchableOpacity
-          style={styles.txt}
-          onPress={() => this.props.navigation.navigate('Chat')}>
+        <TouchableOpacity style={styles.txt}>
           <View style={styles.msgView}>
             <Text style={styles.nameStyle}>Anrdew Mcarthy</Text>
             <Text style={styles.lastMsg} numberOfLines={1}>

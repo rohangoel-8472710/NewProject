@@ -18,8 +18,9 @@ const colors = {
   red: 'rgb(248,68,68)',
   tealBlue: 'rgb(1,167,163)',
   greyish: 'rgb(244,244,244)',
-  blackish:'rgb(35,35,35)',
+  blackish: 'rgb(35,35,35)',
   chatGreen: 'rgb(4,131,123)',
+  typeMsgGrey: 'rgb(140,140,140)',
 };
 
 export default colors;

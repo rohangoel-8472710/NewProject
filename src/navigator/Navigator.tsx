@@ -19,6 +19,7 @@ import Edit from '../containers/EditProfile/Edit';
 import SignUp from '../containers/SignUp/signUp';
 import Chatlist from '../containers/Chat/ChatList/ChatList';
 import ChatMain from '../containers/Chat/ChatMain/ChatMain';
+import InboxFlatList from '../containers/Chat/ChatList/InboxFlatList';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {vw, vh} from '../constants/dimensions';
 import images from '../constants/images';
@@ -49,7 +50,7 @@ function TabBar() {
       <Tab.Screen name={'Home'} component={Home} />
       <Tab.Screen name={'Maps'} component={Maps} />
       <Tab.Screen name={'Edit'} component={Edit} />
-      <Tab.Screen name={'Messages'} component={Chatlist} />
+      <Tab.Screen name={'Messages'} component={ChatMain} />
     </Tab.Navigator>
   );
 }
@@ -72,7 +73,8 @@ export default class Navigator extends React.Component<Props, State> {
           <Stack.Screen name={'Forgot'} component={ForgotPassword} />
           <Stack.Screen name={'Verification'} component={Verifications} />
           <Stack.Screen name={'SignUp'} component={SignUp} />
-          <Stack.Screen name={'Chat'} component={ChatMain} />
+          <Stack.Screen name={'ChatMain'} component={ChatMain} />
+          <Stack.Screen name={'InboxFlatList'} component={InboxFlatList} />
         </Stack.Navigator>
       </NavigationContainer>
     );

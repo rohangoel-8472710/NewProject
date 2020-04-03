@@ -3,6 +3,8 @@ import {Database, DatabaseStatics} from 'react-native-firebase/database';
 import {Platform} from 'react-native';
 
 let userRef = firebase.database().ref('AllUsers/');
+let chatRef = firebase.database().ref('Msgs/');
+let roomchat = firebase.database();
 class Firebaseservices {
   constructor() {
     this.initializeFireBase();
@@ -27,6 +29,24 @@ class Firebaseservices {
     }
   };
 
+  writeUserData(email: string) {
+    chatRef
+      .set({
+        email,
+      })
+      .then(data => {
+        console.log('data ', data);
+      })
+      .catch(error => {
+        console.log('error', error);
+      });
+  }
+
+  readUserData(callback: Function) {
+    chatRef.once('value', function(snapshot: any) {
+      callback(snapshot.val());
+    });
+  }
   //  creating new user ---------------------
   signUp = (user: any, success_callback: any, failure_callback: any) => {
     firebase
@@ -36,7 +56,7 @@ class Firebaseservices {
   };
 
   addingUser = (user: any) => {
-    const users = {email: user.email};
+    const users = {email: user.email, key: user.uid};
     userRef.push(users);
   };
 
@@ -51,7 +71,23 @@ class Firebaseservices {
 
   refOff() {
     userRef.off();
+    chatRef.off();
   }
-}
 
+  send = (messages: Array<any>) => {
+    for (let i = 0; i < messages.length; i++) {
+      const {text, user} = messages[i];
+      const message = {text, user};
+      console.log('msg sended ', message);
+
+      roomchat.ref('chatRoom/' + user.roomID).push(message);
+    }
+  };
+
+  refOn = (id: string, callback: Function) => {
+    roomchat.ref('chatRoom/' + id).on('value', (snapshot: any) => {
+      snapshot.val();
+    });
+  };
+}
 export default new Firebaseservices();

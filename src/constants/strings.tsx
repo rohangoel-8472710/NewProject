@@ -24,7 +24,8 @@ const strings = {
   Social: 'moresocial',
   Edit:'Edit Profile',
   shembe:'Shembe',
-  Chats:'Chats'
+  Chats:'Chats',
+  typeMsg: 'Type Message',
 };
 
 export default strings;

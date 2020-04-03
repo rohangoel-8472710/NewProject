@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
   },
   sendBtn: {
     backgroundColor: colors.tealBlue,
-    height: vh(45),
-    width: vh(45),
+    height: vw(45),
+    width: vw(45),
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: vh(5),
@@ -58,6 +58,20 @@ const styles = StyleSheet.create({
   bubbleRight: {
     backgroundColor: colors.chatGreen,
     marginBottom: vw(5),
+  },
+  chatFooter: {
+    height: vh(20),
+    width: '100%',
+  },
+  inputContainer: {
+    borderRadius: vw(5),
+    height: vw(45),
+    alignItems: 'center',
+    backgroundColor: 'white',
+    paddingTop: vh(15),
+    paddingLeft: vw(14),
+    color: colors.typeMsgGrey,
+    fontSize: vw(15),
   },
 });
 
