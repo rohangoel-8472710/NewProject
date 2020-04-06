@@ -5,6 +5,9 @@ import images from '../../../constants/images';
 
 interface Props {
   navigation?: any;
+  openChat: Function;
+  uid: string;
+  item: any;
 }
 interface State {}
 
@@ -14,16 +17,20 @@ export default class InboxFlatList extends Component<Props, State> {
     this.state = {};
   }
   render() {
+    const {item} = this.props;
+    const {user} = this.props.item;
     return (
       <View style={styles.mainFlatView}>
         <>
           <Image style={styles.profileImg} source={images.placeHolder} />
         </>
-        <TouchableOpacity style={styles.txt}>
+        <TouchableOpacity
+          style={styles.txt}
+          onPress={() => this.props.openChat(user.id, item.roomID, user.email)}>
           <View style={styles.msgView}>
-            <Text style={styles.nameStyle}>Anrdew Mcarthy</Text>
+            <Text style={styles.nameStyle}>{user.email}</Text>
             <Text style={styles.lastMsg} numberOfLines={1}>
-              So we take that as a done deal from..
+              {item.lastMsg}
             </Text>
           </View>
         </TouchableOpacity>

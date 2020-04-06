@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Login from './Login';
-import {updateUid, updateEmail} from '../../modules/SignIn/Action';
+import {updateUid, updateEmail} from '../../modules/Login/Action';
 const mapDispatchToProps = (dispatch: Function) => {
   return {
     updateEmail: (email: string) => dispatch(updateEmail(email)),
@@ -9,7 +9,7 @@ const mapDispatchToProps = (dispatch: Function) => {
 };
 
 const mapStateToProps = (state: any) => {
-  const {uid, email} = state.SignIn;
+  const {uid, email} = state.Login;
   return {
     uid,
     email,

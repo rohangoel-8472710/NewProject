@@ -38,6 +38,9 @@ export default class SignUp extends Component<Props, State> {
     };
   }
   signUp = () => {
+    this.setState({
+      animate: true,
+    });
     let user = {email: this.state.email, password: this.state.password};
     Firebaseservices.signUp(user, this.loginSuccess, this.loginFail);
   };
@@ -91,7 +94,7 @@ export default class SignUp extends Component<Props, State> {
             onSubmitEditing={() => {
               this.secondInput.focus();
             }}
-            autoCapitalize='none'
+            autoCapitalize="none"
           />
           <TextInput
             style={styles.textInputPassword}

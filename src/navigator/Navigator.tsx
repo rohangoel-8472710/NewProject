@@ -31,21 +31,6 @@ interface State {}
 
 function TabBar() {
   return (
-    // <Tab.Navigator
-    //   screenOptions={({route}) => ({
-    //     tabBarIcon: ({focused, color, size}) => {
-    //       let iconName;
-    //       if (route.name === 'Home') {
-    //         iconName = focused
-    //           ? 'ios-information-circle'
-    //           : 'ios-information-circle-outline';
-    //       } else if (route.name === 'Maps') {
-    //         iconName = focused ? 'ios-list-box' : 'ios-list';
-    //       }
-    //       return <Icon name={iconName} size={size} color={color} />;
-    //     },
-    //   })}
-    //   tabBarOptions={{activeTintColor: 'tomato', inactiveTintColor: 'gray'}}>
     <Tab.Navigator>
       <Tab.Screen name={'Home'} component={Home} />
       <Tab.Screen name={'Maps'} component={Maps} />
@@ -64,7 +49,7 @@ export default class Navigator extends React.Component<Props, State> {
         <Stack.Navigator initialRouteName="Splash" headerMode="none">
           <Stack.Screen name={'Splash'} component={Splash} />
           <Stack.Screen name={'Home'} component={TabBar} />
-          {/* <Stack.Screen name={'Login'} component={LoginHandler} /> */}
+          <Stack.Screen name={'SocialLogin'} component={LoginHandler} />
           <Stack.Screen name={'ReduxPresist'} component={Main} />
           <Stack.Screen name={'TabNavigator'} component={TabNavigator} />
           <Stack.Screen name={'DrawerNavigator'} component={DrawerNavigator} />
@@ -75,6 +60,7 @@ export default class Navigator extends React.Component<Props, State> {
           <Stack.Screen name={'SignUp'} component={SignUp} />
           <Stack.Screen name={'ChatMain'} component={ChatMain} />
           <Stack.Screen name={'InboxFlatList'} component={InboxFlatList} />
+          <Stack.Screen name={'Chatlist'} component={Chatlist} />
         </Stack.Navigator>
       </NavigationContainer>
     );

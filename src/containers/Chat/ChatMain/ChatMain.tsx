@@ -10,24 +10,52 @@ import images from '../../../constants/images';
 import {vh, vw} from '../../../constants/dimensions';
 import styles from './styles';
 import strings from '../../../constants/strings';
+import Firebaseservices from '../../../utils/FirebaseServices';
+
+var counter: number = 1;
 interface Props {
   navigation?: any;
+  user: any;
+  route: any;
 }
 interface State {
   messages: any;
+  lastMsg: string;
+  loadState: boolean;
 }
 
 export default class ChatMain extends Component<Props, State> {
+  giftedChatRef: any;
   constructor(props: Props) {
     super(props);
     this.state = {
       messages: [],
+      lastMsg: '',
+      loadState: false,
     };
   }
+
+  componentDidMount() {
+    counter = 1;
+    // this.refOn();
+  }
+
+  componentWillUnmount() {
+    Firebaseservices.refOff();
+  }
   renderSend = () => {
+    const msg = this.giftedChatRef.state.text || '';
     return (
       <>
-        <TouchableOpacity style={styles.sendBtn}>
+        <TouchableOpacity
+          style={styles.sendBtn}
+          onPress={() => {
+            if (msg.trim().length > 0) {
+              this.giftedChatRef.onSend({text: msg.trim()}, true);
+            } else {
+              return;
+            }
+          }}>
           <Image source={images.send} />
         </TouchableOpacity>
       </>
@@ -72,6 +100,29 @@ export default class ChatMain extends Component<Props, State> {
     );
   };
 
+  // refOn = () => {
+  //   Firebaseservices.refOn(
+  //     counter,
+  //     this.props.route.params.roomID,
+  //     (message: any) => {
+  //       if (message.length !== 20 * counter) {
+  //         this.setState({loadState: false});
+  //       } else {
+  //         this.setState({loadState: true});
+  //       }
+  //       this.setState({messages: message, lastMsg: message});
+  //     },
+  //   );
+  // };
+
+  // get user() {
+  //   return {
+  //     _id: this.props.user.key,
+  //     id: this.props.route.params.reciverId,
+  //     email: this.props.user.email,
+  //     roomID: this.props.route.params.roomID,
+  //   };
+  // }
   render() {
     return (
       <>
@@ -96,6 +147,12 @@ export default class ChatMain extends Component<Props, State> {
           showAvatarForEveryMessage={false}
           renderAvatarOnTop={true}
           showUserAvatar={true}
+          onSend={messages => Firebaseservices.send(messages)}
+          // user={this.user}
+          loadEarlier={this.state.loadState}
+          ref={ref => {
+            this.giftedChatRef = ref;
+          }}
         />
       </>
     );

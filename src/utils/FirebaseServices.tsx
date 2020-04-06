@@ -5,6 +5,7 @@ import {Platform} from 'react-native';
 let userRef = firebase.database().ref('AllUsers/');
 let chatRef = firebase.database().ref('Msgs/');
 let roomchat = firebase.database();
+let inbox = firebase.database();
 class Firebaseservices {
   constructor() {
     this.initializeFireBase();
@@ -47,7 +48,7 @@ class Firebaseservices {
       callback(snapshot.val());
     });
   }
-  //  creating new user ---------------------
+  //  creating new user
   signUp = (user: any, success_callback: any, failure_callback: any) => {
     firebase
       .auth()
@@ -60,7 +61,7 @@ class Firebaseservices {
     userRef.push(users);
   };
 
-  // Sign In for Firebase Auth ------------
+  // Sign In for Firebase Auth
   login = (user: any, success_callback: any, failure_callback: any) => {
     firebase
       .auth()
@@ -80,13 +81,54 @@ class Firebaseservices {
       const message = {text, user};
       console.log('msg sended ', message);
 
+      const sender = {id: message.user.id};
+      inbox
+        .ref('Inbox/' + user._id)
+        .child(user.roomID)
+        .set({
+          roomID: user.roomID,
+          user: sender,
+          lastMsg: message.text,
+        });
+
+      const receiver = {id: message.user._id};
+      inbox
+        .ref('Inbox/' + user._id)
+        .child(user.roomID)
+        .set({
+          roomID: user.roomID,
+          user: receiver,
+          lastMsg: message.text,
+        });
+
       roomchat.ref('chatRoom/' + user.roomID).push(message);
     }
   };
 
-  refOn = (id: string, callback: Function) => {
-    roomchat.ref('chatRoom/' + id).on('value', (snapshot: any) => {
-      snapshot.val();
+  refOn = (counter: number, id: string, callback: Function) => {
+    roomchat
+      .ref('chatRoom/' + id)
+      .limitToLast(counter === 1 ? 20 : 20 * counter)
+      .on('value', (snapshot: any) => {
+        snapshot.val() === null ? callback([]) : callback(this.parse(snapshot));
+      });
+  };
+
+  parse = (snapshot: any) => {
+    var result = Object.keys(snapshot.val()).map(key => snapshot.val()[key]);
+    result.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
+    return result;
+  };
+
+  inboxList = (uid: string, callback: Function) => {
+    inbox.ref('Inbox/' + uid).on('value', function(snapshot: any) {
+      callback(snapshot.val());
+    });
+  };
+
+  fetchList = (callback: Function) => {
+    userRef.on('child_added', (snapshot: any) => {
+      callback(snapshot.val());
     });
   };
 }

@@ -8,7 +8,7 @@ const mapDispatchToProps = (dispatch: Function) => ({
 });
 
 const mapStateToProps = (state: any) => {
-  const {uid, email} = state.SignIn;
+  const {uid, email} = state.Login;
   const {user} = state.ChatList;
   return {
     uid,
