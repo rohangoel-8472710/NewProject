@@ -19,6 +19,7 @@ interface State {
   lastMsgData: Array<any>;
   chatEmpty: boolean;
   list: Array<any>;
+  email: string;
 }
 
 const DATA = [
@@ -40,6 +41,7 @@ export default class ChatList extends Component<Props, State> {
       lastMsgData: [],
       chatEmpty: false,
       list: [],
+      email: this.props.email,
     };
   }
 
@@ -75,15 +77,13 @@ export default class ChatList extends Component<Props, State> {
     this.props.navigation.navigate('ChatMain', {
       roomID: chatRoomId,
       reciverId: user.key,
-      email: user.email,
     });
   };
 
-  existingChatRoom = (id: string, roomID: string, email: string) => {
+  existingChatRoom = (id: string, roomID: string) => {
     this.props.navigation.navigate('ChatMain', {
       roomID: roomID,
       reciverId: id,
-      email: email,
     });
   };
 

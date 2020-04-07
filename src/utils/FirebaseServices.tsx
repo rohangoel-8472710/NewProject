@@ -93,7 +93,7 @@ class Firebaseservices {
 
       const receiver = {id: message.user._id};
       inbox
-        .ref('Inbox/' + user._id)
+        .ref('Inbox/' + user.id)
         .child(user.roomID)
         .set({
           roomID: user.roomID,
@@ -128,6 +128,12 @@ class Firebaseservices {
 
   fetchList = (callback: Function) => {
     userRef.on('child_added', (snapshot: any) => {
+      callback(snapshot.val());
+    });
+  };
+
+  loadMsgs = (callback: Function) => {
+    chatRef.once('value', function(snapshot: any) {
       callback(snapshot.val());
     });
   };

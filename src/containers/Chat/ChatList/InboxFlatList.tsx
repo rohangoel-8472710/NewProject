@@ -26,9 +26,9 @@ export default class InboxFlatList extends Component<Props, State> {
         </>
         <TouchableOpacity
           style={styles.txt}
-          onPress={() => this.props.openChat(user.id, item.roomID, user.email)}>
+          onPress={() => this.props.openChat(item.roomID)}>
           <View style={styles.msgView}>
-            <Text style={styles.nameStyle}>{user.email}</Text>
+            <Text style={styles.nameStyle}>Rohan</Text>
             <Text style={styles.lastMsg} numberOfLines={1}>
               {item.lastMsg}
             </Text>

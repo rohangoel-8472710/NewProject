@@ -37,7 +37,7 @@ export default class ChatMain extends Component<Props, State> {
 
   componentDidMount() {
     counter = 1;
-    // this.refOn();
+    this.refOn();
   }
 
   componentWillUnmount() {
@@ -100,29 +100,29 @@ export default class ChatMain extends Component<Props, State> {
     );
   };
 
-  // refOn = () => {
-  //   Firebaseservices.refOn(
-  //     counter,
-  //     this.props.route.params.roomID,
-  //     (message: any) => {
-  //       if (message.length !== 20 * counter) {
-  //         this.setState({loadState: false});
-  //       } else {
-  //         this.setState({loadState: true});
-  //       }
-  //       this.setState({messages: message, lastMsg: message});
-  //     },
-  //   );
-  // };
+  refOn = () => {
+    Firebaseservices.refOn(
+      counter,
+      this.props.route.params.roomID,
+      (message: any) => {
+        if (message.length !== 20 * counter) {
+          this.setState({loadState: false});
+        } else {
+          this.setState({loadState: true});
+        }
+        this.setState({messages: message, lastMsg: message});
+      },
+    );
+  };
 
-  // get user() {
-  //   return {
-  //     _id: this.props.user.key,
-  //     id: this.props.route.params.reciverId,
-  //     email: this.props.user.email,
-  //     roomID: this.props.route.params.roomID,
-  //   };
-  // }
+  get user() {
+    return {
+      _id: this.props.user.key,
+      id: this.props.route.params.userid,
+      email: this.props.user.email,
+      roomID: this.props.route.params.roomID,
+    };
+  }
   render() {
     return (
       <>
