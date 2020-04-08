@@ -27,7 +27,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=c51d41a8e4eb4620be2c754fb28cb5c6',
+        'https://newsapi.org/v2/everything?q=noida&apiKey=a8560b57171e4f62bc246ab838f98e4e',
       )
       .then(response => {
         console.log(response.data);

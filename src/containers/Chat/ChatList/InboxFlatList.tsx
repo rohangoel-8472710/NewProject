@@ -16,6 +16,16 @@ export default class InboxFlatList extends Component<Props, State> {
     super(props);
     this.state = {};
   }
+  pad = (num: number) => {
+    return ('0' + num).slice(-2);
+  };
+
+  getTimeAndDate = (timestamp: number) => {
+    var date = new Date(timestamp);
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    return this.pad(hours) + ':' + this.pad(minutes);
+  };
   render() {
     const {item} = this.props;
     const {user} = this.props.item;
@@ -26,12 +36,17 @@ export default class InboxFlatList extends Component<Props, State> {
         </>
         <TouchableOpacity
           style={styles.txt}
-          onPress={() => this.props.openChat(item.roomID)}>
+          onPress={() => this.props.openChat(item.roomID, user.name, user.id)}>
           <View style={styles.msgView}>
-            <Text style={styles.nameStyle}>Rohan</Text>
+            <Text style={styles.nameStyle}>{user.name}</Text>
             <Text style={styles.lastMsg} numberOfLines={1}>
               {item.lastMsg}
             </Text>
+            <View style={styles.timeView}>
+              <Text style={styles.timeTxt}>
+                {this.getTimeAndDate(item.createdAt)}
+              </Text>
+            </View>
           </View>
         </TouchableOpacity>
       </View>

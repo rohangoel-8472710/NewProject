@@ -22,6 +22,7 @@ interface State {
   messages: any;
   lastMsg: string;
   loadState: boolean;
+  isTyping: boolean;
 }
 
 export default class ChatMain extends Component<Props, State> {
@@ -32,12 +33,18 @@ export default class ChatMain extends Component<Props, State> {
       messages: [],
       lastMsg: '',
       loadState: false,
+      isTyping: false,
     };
   }
 
   componentDidMount() {
     counter = 1;
     this.refOn();
+    Firebaseservices.getTyping(
+      this.props.route.params.roomID,
+      this.props.route.params.reciverId,
+      this.setTyping,
+    );
   }
 
   componentWillUnmount() {
@@ -115,10 +122,25 @@ export default class ChatMain extends Component<Props, State> {
     );
   };
 
+  setTyping = (data: any) => {
+    if (data !== null) {
+      this.setState({isTyping: data.isTyping});
+    }
+  };
+
+  typingIndicator = (text: string) => {
+    if (text !== '') {
+      Firebaseservices.trueTypingIndicator(
+        this.props.route.params.roomID,
+        this.props.user.key,
+      );
+    }
+  };
+
   get user() {
     return {
       _id: this.props.user.key,
-      id: this.props.route.params.userid,
+      id: this.props.route.params.reciverId,
       email: this.props.user.email,
       roomID: this.props.route.params.roomID,
     };
@@ -148,11 +170,12 @@ export default class ChatMain extends Component<Props, State> {
           renderAvatarOnTop={true}
           showUserAvatar={true}
           onSend={messages => Firebaseservices.send(messages)}
-          // user={this.user}
+          user={this.user}
           loadEarlier={this.state.loadState}
           ref={ref => {
             this.giftedChatRef = ref;
           }}
+          onInputTextChanged={(text: string) => this.typingIndicator(text)}
         />
       </>
     );

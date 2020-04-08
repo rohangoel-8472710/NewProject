@@ -57,11 +57,20 @@ const styles = StyleSheet.create({
     fontSize: vw(12),
     color: colors.blackish,
   },
-  separator:{
+  separator: {
     height: vh(1),
     width: '100%',
     backgroundColor: colors.greyish,
-  }
+  },
+  timeView: {
+    height: '100%',
+    width: '25%',
+    justifyContent: 'space-between',
+  },
+  timeTxt: {
+    fontSize: vw(14),
+    color: colors.tealBlue,
+  },
 });
 
 export default styles;

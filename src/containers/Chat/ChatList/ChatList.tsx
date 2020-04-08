@@ -46,7 +46,7 @@ export default class ChatList extends Component<Props, State> {
   }
 
   componentDidMount() {
-    this.fetchInbox();
+    // this.fetchInbox();
   }
   componentWillUnmount() {
     Firebaseservices.refOff();
@@ -85,23 +85,24 @@ export default class ChatList extends Component<Props, State> {
       roomID: roomID,
       reciverId: id,
     });
+    // console.warn('roomId is',roomID);
   };
 
-  fetchInbox = () => {
-    Firebaseservices.inboxList(this.state.uid, (data: any) => {
-      if (data !== null) {
-        var objData = Object.keys(data).map(function(key) {
-          return data[key];
-        });
-        objData.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
-        this.setState({lastMsgData: objData, chatEmpty: false}, () =>
-          this.fetch(),
-        );
-      } else {
-        this.setState({chatEmpty: true});
-      }
-    });
-  };
+  // fetchInbox = () => {
+  //   Firebaseservices.inboxList(this.state.uid, (data: any) => {
+  //     if (data !== null) {
+  //       var objData = Object.keys(data).map(function(key) {
+  //         return data[key];
+  //       });
+  //       objData.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
+  //       this.setState({lastMsgData: objData, chatEmpty: false}, () =>
+  //         this.fetch(),
+  //       );
+  //     } else {
+  //       this.setState({chatEmpty: true});
+  //     }
+  //   });
+  // };
 
   fetch = () => {
     var newData: Array<any> = [];

@@ -6,6 +6,8 @@ let userRef = firebase.database().ref('AllUsers/');
 let chatRef = firebase.database().ref('Msgs/');
 let roomchat = firebase.database();
 let inbox = firebase.database();
+var message: any;
+let typingRef = firebase.database().ref('Typing/');
 class Firebaseservices {
   constructor() {
     this.initializeFireBase();
@@ -78,10 +80,12 @@ class Firebaseservices {
   send = (messages: Array<any>) => {
     for (let i = 0; i < messages.length; i++) {
       const {text, user} = messages[i];
-      const message = {text, user};
+      const message = {text, user, createdAt: new Date().getTime()};
       console.log('msg sended ', message);
 
-      const sender = {id: message.user.id};
+      const sender = {id: message.user.uid};
+      // console.warn('id is', message.user.uid);
+
       inbox
         .ref('Inbox/' + user._id)
         .child(user.roomID)
@@ -89,6 +93,7 @@ class Firebaseservices {
           roomID: user.roomID,
           user: sender,
           lastMsg: message.text,
+          createdAt: message.createdAt,
         });
 
       const receiver = {id: message.user._id};
@@ -99,9 +104,11 @@ class Firebaseservices {
           roomID: user.roomID,
           user: receiver,
           lastMsg: message.text,
+          createdAt: message.createdAt,
         });
 
       roomchat.ref('chatRoom/' + user.roomID).push(message);
+      this.falseTypingIndicator(user.roomID, user._id);
     }
   };
 
@@ -117,6 +124,8 @@ class Firebaseservices {
   parse = (snapshot: any) => {
     var result = Object.keys(snapshot.val()).map(key => snapshot.val()[key]);
     result.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
+    // console.warn('data is=>', result);
+
     return result;
   };
 
@@ -136,6 +145,44 @@ class Firebaseservices {
     chatRef.once('value', function(snapshot: any) {
       callback(snapshot.val());
     });
+  };
+
+  getTyping = (roomID: string, uid: string, callback: Function) => {
+    roomchat
+      .ref('Typing/' + roomID)
+      .child(uid)
+      .on('value', function(snapshot: any) {
+        callback(snapshot.val());
+      });
+  };
+  falseTypingIndicator = (roomID: string, _id: string) => {
+    roomchat
+      .ref('Typing/' + roomID)
+      .child(_id)
+      .set({
+        isTyping: false,
+      })
+      .then(data => {
+        console.log('false isTyping ', data);
+      })
+      .catch(error => {
+        console.warn('error ', error);
+      });
+  };
+
+  trueTypingIndicator = (roomID: string, myUID: string) => {
+    roomchat
+      .ref('Typing/' + roomID)
+      .child(myUID)
+      .set({
+        isTyping: true,
+      })
+      .then(data => {
+        console.log('true isTyping', data);
+      })
+      .catch(error => {
+        console.log('error', error);
+      });
   };
 }
 export default new Firebaseservices();

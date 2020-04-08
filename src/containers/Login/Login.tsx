@@ -59,6 +59,8 @@ class Login extends Component<Props, State> {
   loginSuccess = (data: any) => {
     this.props.updateEmail(this.state.email);
     this.props.updateUid(data.user.uid);
+    // console.warn('Uid is', data.user.uid);
+
     this.setState({animate: false});
     this.props.navigation.navigate('Home');
   };

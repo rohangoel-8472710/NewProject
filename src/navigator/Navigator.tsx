@@ -35,7 +35,7 @@ function TabBar() {
       <Tab.Screen name={'Home'} component={Home} />
       <Tab.Screen name={'Maps'} component={Maps} />
       <Tab.Screen name={'Edit'} component={Edit} />
-      <Tab.Screen name={'Messages'} component={ChatMain} />
+      <Tab.Screen name={'Messages'} component={Chatlist} />
     </Tab.Navigator>
   );
 }
