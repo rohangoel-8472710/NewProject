@@ -5,6 +5,8 @@ import {
   hideFooter,
   addImagesToBuffer,
   uploadAndSend,
+  addVideo,
+  uploadAndSendVideo,
 } from '../../../modules/ChatMain/Action';
 
 const mapDispatchToProps = (dispatch: Function) => ({
@@ -17,16 +19,34 @@ const mapDispatchToProps = (dispatch: Function) => ({
     ref: any,
     callback: Function,
   ) => dispatch(uploadAndSend(roomID, userID, ref, callback)),
+  addVideo: (data: any) => dispatch(addVideo(data)),
+  uploadAndSendVideo: (
+    roomID: string,
+    userID: string,
+    ref: any,
+    callback: Function,
+  ) => dispatch(uploadAndSendVideo(roomID, userID, ref, callback)),
 });
 const mapStateToProps = (state: any) => {
   const {user} = state.ChatList;
-  const {showFooter, images, currentImg, sendingURL} = state.ChatMain;
+  const {
+    showFooter,
+    images,
+    currentImg,
+    sendingURL,
+    videoURL,
+    currentVideo,
+    sendingVideoURL,
+  } = state.ChatMain;
   return {
     user,
     showFooter,
     images,
     currentImg,
     sendingURL,
+    videoURL,
+    currentVideo,
+    sendingVideoURL,
   };
 };
 

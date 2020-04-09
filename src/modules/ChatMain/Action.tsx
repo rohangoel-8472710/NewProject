@@ -4,6 +4,9 @@ import {
   HIDE_FOOTER,
   CURRENT_IMAGE,
   URL_IMAGE,
+  URL_VIDEO,
+  CURRENT_VIDEO,
+  ADD_VIDEO,
 } from './Type';
 import Firebaseservices from '../../utils/FirebaseServices';
 
@@ -43,5 +46,31 @@ export const uploadAndSend = (
         });
       }
     });
+  };
+};
+export const addVideo = (values: Object) => {
+  return (dispatch: any) => {
+    dispatch({type: ADD_VIDEO, payload: {data: values}});
+  };
+};
+export const uploadAndSendVideo = (
+  roomID: string,
+  userID: string,
+  ref: any,
+  callback: Function,
+) => {
+  return (dispatch: any, getState: any) => {
+    const {videoURL} = getState().Main;
+    if (videoURL.roomID === roomID && videoURL.userID === userID) {
+      dispatch({type: CURRENT_VIDEO, payload: {data: videoURL.video}});
+      Firebaseservices.uploadMsgVideo(
+        videoURL.video,
+        (url: string, name: string) => {
+          dispatch({type: URL_VIDEO, payload: {data: url}});
+          ref.onSend({text: ''}, true);
+          callback();
+        },
+      );
+    }
   };
 };

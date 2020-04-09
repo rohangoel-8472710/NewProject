@@ -89,6 +89,37 @@ const styles = StyleSheet.create({
   headerName: {
     fontSize: vw(20),
   },
+  imageFooter: {
+    backgroundColor: colors.chatGreen,
+    width: vw(140),
+    height: vh(100),
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: vw(185),
+    borderRadius: vh(15),
+    padding: vw(4),
+  },
+  sendingImg: {
+    height: '100%',
+    width: '100%',
+    borderRadius: vh(15),
+  },
+  indicator: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  rightHeaderView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingRight: vw(10),
+    justifyContent: 'space-around',
+  },
+  cameraIcon: {
+    paddingHorizontal: vw(10),
+  },
 });
 
 export default styles;

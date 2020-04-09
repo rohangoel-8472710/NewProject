@@ -46,7 +46,8 @@ export default class ChatList extends Component<Props, State> {
   }
 
   componentDidMount() {
-    // this.fetchInbox();
+    this.fetchInbox();
+    this.LastMessages;
   }
   componentWillUnmount() {
     Firebaseservices.refOff();
@@ -88,21 +89,21 @@ export default class ChatList extends Component<Props, State> {
     // console.warn('roomId is',roomID);
   };
 
-  // fetchInbox = () => {
-  //   Firebaseservices.inboxList(this.state.uid, (data: any) => {
-  //     if (data !== null) {
-  //       var objData = Object.keys(data).map(function(key) {
-  //         return data[key];
-  //       });
-  //       objData.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
-  //       this.setState({lastMsgData: objData, chatEmpty: false}, () =>
-  //         this.fetch(),
-  //       );
-  //     } else {
-  //       this.setState({chatEmpty: true});
-  //     }
-  //   });
-  // };
+  fetchInbox = () => {
+    Firebaseservices.inboxList(this.state.uid, (data: any) => {
+      if (data !== null) {
+        var objData = Object.keys(data).map(function(key) {
+          return data[key];
+        });
+        objData.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1));
+        this.setState({lastMsgData: objData, chatEmpty: false}, () =>
+          this.fetch(),
+        );
+      } else {
+        this.setState({chatEmpty: true});
+      }
+    });
+  };
 
   fetch = () => {
     var newData: Array<any> = [];
@@ -116,6 +117,29 @@ export default class ChatList extends Component<Props, State> {
     setTimeout(() => {
       this.setState({list: newData});
     }, 500);
+  };
+  getUnreadMessages = () => {
+    const data = this.state.lastMsgData;
+    for (let i = 0; i < data.length; i++) {
+      let chatId = '';
+      if (this.props.uid > data[i].id) {
+        chatId = this.props.uid.concat(data[i].id);
+      } else {
+        chatId = data[i].id.concat(this.props.uid);
+      }
+      Firebaseservices.unreadMessages(chatId, data[i].id, (messages: any) => {
+        Firebaseservices.unreadMessageCount(
+          this.props.uid,
+          data[i].id,
+          messages,
+        );
+      });
+    }
+  };
+  LastMessages = (data: any) => {
+    if (data) {
+      this.setState({lastMsgData: data}, () => this.getUnreadMessages());
+    }
   };
   render() {
     return (
@@ -131,7 +155,7 @@ export default class ChatList extends Component<Props, State> {
           ItemSeparatorComponent={this.FlatListItemSeparator}
           keyExtractor={(item, key) => key.toString()}
           bounces={false}
-          data={DATA}
+          data={this.state.lastMsgData}
         />
       </>
     );

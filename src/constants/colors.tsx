@@ -23,6 +23,7 @@ const colors = {
   typeMsgGrey: 'rgb(140,140,140)',
   day: 'rgb(214, 231, 230)',
   greyishBrown: 'rgb(89, 89, 89)',
+  socialColor: '#25A6E9',
 };
 
 export default colors;

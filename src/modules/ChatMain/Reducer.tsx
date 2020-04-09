@@ -4,12 +4,18 @@ import {
   HIDE_FOOTER,
   CURRENT_IMAGE,
   URL_IMAGE,
+  URL_VIDEO,
+  CURRENT_VIDEO,
+  ADD_VIDEO,
 } from './Type';
 const initalState = {
   showFooter: false,
   images: [],
   currentImg: '',
   sendingURL: '',
+  videoURL: '',
+  currentVideo: '',
+  sendingVideoURL: '',
 };
 const Reducer = (state = initalState, action: any) => {
   switch (action.type) {
@@ -23,6 +29,12 @@ const Reducer = (state = initalState, action: any) => {
       return {...state, currentImg: action.payload.data};
     case URL_IMAGE:
       return {...state, sendingURL: action.payload.data};
+    case ADD_VIDEO:
+      return {...state, videoURL: action.payload.data};
+    case CURRENT_VIDEO:
+      return {...state, currentVideo: action.payload.data};
+    case URL_VIDEO:
+      return {...state, sendingVideoURL: action.payload.data};
     default:
       return state;
   }

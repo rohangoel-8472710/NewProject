@@ -46,6 +46,11 @@ export default class InboxFlatList extends Component<Props, State> {
               <Text style={styles.timeTxt}>
                 {this.getTimeAndDate(item.createdAt)}
               </Text>
+              {item.unreadMsg !== 0 && (
+                <View style={styles.unreadView}>
+                  <Text style={styles.unreadMessages}>{item.unreadMsg}</Text>
+                </View>
+              )}
             </View>
           </View>
         </TouchableOpacity>

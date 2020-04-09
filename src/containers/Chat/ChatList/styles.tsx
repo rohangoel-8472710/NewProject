@@ -71,6 +71,19 @@ const styles = StyleSheet.create({
     fontSize: vw(14),
     color: colors.tealBlue,
   },
+  unreadView: {
+    height: vh(20),
+    width: vh(20),
+    backgroundColor: colors.socialColor,
+    alignItems: 'center',
+    borderRadius: vh(10),
+    justifyContent: 'center',
+    marginRight: vw(25),
+  },
+  unreadMessages: {
+    color: colors.white,
+    fontSize: vh(12),
+  },
 });
 
 export default styles;

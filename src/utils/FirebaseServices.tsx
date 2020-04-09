@@ -1,4 +1,4 @@
-import firebase, {Firebase, auth} from 'react-native-firebase';
+import firebase, {Firebase, auth, database} from 'react-native-firebase';
 import {Database, DatabaseStatics} from 'react-native-firebase/database';
 import {Platform} from 'react-native';
 
@@ -212,6 +212,57 @@ class Firebaseservices {
     } else {
       callback(null);
     }
+  };
+  uploadMsgVideo = (paths: any, callback: Function) => {
+    debugger;
+    if (!!paths) {
+      const name = Math.random().toString();
+      const videoRef = firebase
+        .storage()
+        .ref('msgVideos')
+        .child(name);
+
+      return videoRef
+        .putFile(paths, {contentType: 'mp4'})
+        .then(() => {
+          return videoRef.getDownloadURL();
+        })
+        .then(url => {
+          console.log(url);
+          callback(url, name);
+        })
+        .catch(error => {
+          console.warn('Error uploading video: ', error);
+        });
+    } else {
+      callback(null);
+    }
+  };
+
+  unreadMessageCount = (uid: string, roomID: string, unread: number) => {
+    database()
+      .ref('Inbox/' + 'OneonOne/' + uid + '/' + roomID)
+      .child('unreadMessages')
+      .set(unread);
+  };
+  unreadMessages = (uid: string, roomID: string, callBack: Function) => {
+    const Receive = (data: any) => {
+      if (data.snapshot.value) {
+        const message = data.snapshot.value;
+        const keys = Object.keys(message);
+        const messages = [];
+
+        for (let i = 0; i < keys.length; i++) {
+          const arr = keys[i];
+          const mess = message[arr];
+          const msg = {mess, id: arr};
+          if (msg.mess.user.uid !== roomID && msg.mess.message === false) {
+            messages.push(msg);
+          }
+        }
+        callBack(messages.length);
+      }
+    };
   };
 }
 export default new Firebaseservices();

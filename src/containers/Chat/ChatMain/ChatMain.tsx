@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity, Image, Text} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Image,
+  Text,
+  ActivityIndicator,
+  Alert,
+} from 'react-native';
 import {
   GiftedChat,
   InputToolbar,
@@ -9,28 +16,38 @@ import {
   Day,
 } from 'react-native-gifted-chat';
 import images from '../../../constants/images';
-import {vh, vw} from '../../../constants/dimensions';
+import colors from '../../../constants/colors';
+import {vw} from '../../../constants/dimensions';
 import styles from './styles';
 import strings from '../../../constants/strings';
 import Firebaseservices from '../../../utils/FirebaseServices';
-
+import {ImagePickerFn} from '../../../components/';
+import Icon from 'react-native-vector-icons/FontAwesome';
 var counter: number = 1;
 interface Props {
   navigation?: any;
   user: any;
   route: any;
-  showFooter: boolean,
-  showingFooter: Function,
-  hideFooter: Function,
-  addImagesToBuffer: Function,
-  uploadAndSend: Function,
-  sendingURL: string,
+  showFooter: boolean;
+  showingFooter: Function;
+  hideFooter: Function;
+  addImagesToBuffer: Function;
+  uploadAndSend: Function;
+  sendingURL: string;
+  addVideo: Function;
+  videoURL: any;
+  uploadAndSendVideo: Function;
+  currentVideo: string;
+  sendingVideoURL: string;
+  images: Array<any>;
+  currentImg: string;
 }
 interface State {
   messages: any;
   lastMsg: string;
   loadState: boolean;
   isTyping: boolean;
+  showFooter: boolean;
 }
 
 export default class ChatMain extends Component<Props, State> {
@@ -42,6 +59,7 @@ export default class ChatMain extends Component<Props, State> {
       lastMsg: '',
       loadState: false,
       isTyping: false,
+      showFooter: false,
     };
   }
 
@@ -66,6 +84,8 @@ export default class ChatMain extends Component<Props, State> {
           style={styles.sendBtn}
           onPress={() => {
             if (msg.trim().length > 0) {
+              this.giftedChatRef.onSend({text: msg.trim()}, true);
+            } else if (this.props.sendingURL !== '') {
               this.giftedChatRef.onSend({text: msg.trim()}, true);
             } else {
               return;
@@ -167,6 +187,58 @@ export default class ChatMain extends Component<Props, State> {
     );
   };
 
+  renderFooter = () => {
+    let array = this.props.images.filter(
+      (item: any) =>
+        item.roomID === this.props.route.params.roomID &&
+        item.userID === this.props.user.key,
+    );
+    if (array.length !== 0) {
+      return this.props.showFooter && this.state.showFooter ? (
+        <View style={styles.imageFooter}>
+          <Image
+            source={{uri: this.props.currentImg}}
+            style={styles.sendingImg}
+          />
+          <ActivityIndicator
+            animating={true}
+            size="large"
+            color={colors.chatGreen}
+            style={styles.indicator}
+          />
+        </View>
+      ) : (
+        <></>
+      );
+    }
+  };
+
+  ImagePicker = () => {
+    ImagePickerFn.getMultiplePic((response: Array<any>) => {
+      response.map(res => {
+        var obj = {
+          img: res,
+          roomID: this.props.route.params.roomID,
+          userID: this.props.user.key,
+        };
+        this.props.addImagesToBuffer(obj);
+      });
+      this.props.showingFooter();
+      this.setState({showFooter: true});
+      this.refOn();
+      this.props.uploadAndSend(
+        this.props.route.params.roomID,
+        this.props.user.key,
+        this.giftedChatRef,
+        () => {
+          this.props.hideFooter();
+          this.setState({showFooter: false});
+          this.refOn();
+        },
+      );
+    });
+  };
+
   get user() {
     return {
       _id: this.props.user.key,
@@ -194,6 +266,25 @@ export default class ChatMain extends Component<Props, State> {
               <Text style={styles.headerName}> ({strings.typing})</Text>
             ) : null}
           </View>
+          <View style={styles.rightHeaderView}>
+            <Icon
+              name="camera"
+              size={vw(30)}
+              style={styles.cameraIcon}
+              color={colors.greyishBrown}
+              onPress={() => {
+                Alert.alert(
+                  'Pick Image From',
+                  '',
+                  [
+                    {text: 'Gallery', onPress: () => this.ImagePicker()},
+                    {text: 'Cancel', onPress: () => console.log('Cancelled')},
+                  ],
+                  {cancelable: true},
+                );
+              }}
+            />
+          </View>
         </View>
         <GiftedChat
           minComposerHeight={vw(45)}
@@ -206,7 +297,9 @@ export default class ChatMain extends Component<Props, State> {
           showAvatarForEveryMessage={false}
           renderAvatarOnTop={true}
           showUserAvatar={true}
-          onSend={messages => Firebaseservices.send(messages)}
+          onSend={messages =>
+            Firebaseservices.send(messages, this.props.sendingURL)
+          }
           user={this.user}
           loadEarlier={this.state.loadState}
           ref={ref => {
@@ -215,6 +308,7 @@ export default class ChatMain extends Component<Props, State> {
           onInputTextChanged={(text: string) => this.typingIndicator(text)}
           renderDay={this.renderDay}
           renderTime={this.renderTime}
+          renderFooter={this.renderFooter}
         />
       </>
     );
