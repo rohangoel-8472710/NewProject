@@ -26,6 +26,7 @@ const strings = {
   shembe:'Shembe',
   Chats:'Chats',
   typeMsg: 'Type Message',
+  typing: 'Typing...',
 };
 
 export default strings;

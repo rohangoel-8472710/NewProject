@@ -73,6 +73,22 @@ const styles = StyleSheet.create({
     color: colors.typeMsgGrey,
     fontSize: vw(15),
   },
+  timeText: {
+    fontSize: vw(12),
+  },
+  dayStyle: {
+    backgroundColor: colors.day,
+    paddingHorizontal: vw(13),
+    paddingVertical: vh(8),
+    borderRadius: vh(5),
+  },
+  dayText: {
+    fontSize: vw(13),
+    color: colors.greyishBrown,
+  },
+  headerName: {
+    fontSize: vw(20),
+  },
 });
 
 export default styles;

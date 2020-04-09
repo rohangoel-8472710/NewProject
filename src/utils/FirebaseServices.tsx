@@ -77,13 +77,18 @@ class Firebaseservices {
     chatRef.off();
   }
 
-  send = (messages: Array<any>) => {
+  send = (messages: Array<any>, image?: string) => {
     for (let i = 0; i < messages.length; i++) {
       const {text, user} = messages[i];
-      const message = {text, user, createdAt: new Date().getTime()};
+      const message = {
+        text,
+        user,
+        createdAt: new Date().getTime(),
+        image: image,
+      };
       console.log('msg sended ', message);
 
-      const sender = {id: message.user.uid};
+      const sender = {id: message.user.uid, name: message.user.name};
       // console.warn('id is', message.user.uid);
 
       inbox
@@ -92,7 +97,7 @@ class Firebaseservices {
         .set({
           roomID: user.roomID,
           user: sender,
-          lastMsg: message.text,
+          lastMsg: message.image !== '' ? 'Photo' : message.text,
           createdAt: message.createdAt,
         });
 
@@ -103,7 +108,7 @@ class Firebaseservices {
         .set({
           roomID: user.roomID,
           user: receiver,
-          lastMsg: message.text,
+          lastMsg: message.image !== '' ? 'Photo' : message.text,
           createdAt: message.createdAt,
         });
 
@@ -183,6 +188,30 @@ class Firebaseservices {
       .catch(error => {
         console.log('error', error);
       });
+  };
+
+  uploadMsgPic = (paths: any, callback: Function) => {
+    if (!!paths) {
+      const name = Math.random().toString();
+      const imageRef = firebase
+        .storage()
+        .ref('msgPics')
+        .child(name);
+      return imageRef
+        .putFile(paths, {contentType: 'jpg'})
+        .then(() => {
+          return imageRef.getDownloadURL();
+        })
+        .then(url => {
+          console.log(url);
+          callback(url, name);
+        })
+        .catch(error => {
+          console.warn('Error Uploading Image', error);
+        });
+    } else {
+      callback(null);
+    }
   };
 }
 export default new Firebaseservices();

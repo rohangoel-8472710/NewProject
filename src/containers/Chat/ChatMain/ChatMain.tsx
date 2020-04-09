@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity, Image} from 'react-native';
+import {View, TouchableOpacity, Image, Text} from 'react-native';
 import {
   GiftedChat,
   InputToolbar,
   Bubble,
   Composer,
+  Time,
+  Day,
 } from 'react-native-gifted-chat';
 import images from '../../../constants/images';
 import {vh, vw} from '../../../constants/dimensions';
@@ -17,6 +19,12 @@ interface Props {
   navigation?: any;
   user: any;
   route: any;
+  showFooter: boolean,
+  showingFooter: Function,
+  hideFooter: Function,
+  addImagesToBuffer: Function,
+  uploadAndSend: Function,
+  sendingURL: string,
 }
 interface State {
   messages: any;
@@ -137,12 +145,35 @@ export default class ChatMain extends Component<Props, State> {
     }
   };
 
+  renderTime = (props: any) => {
+    return (
+      <Time
+        {...props}
+        timeTextStyle={{
+          left: styles.timeText,
+          right: styles.timeText,
+        }}
+      />
+    );
+  };
+
+  renderDay = (props: any) => {
+    return (
+      <Day
+        {...props}
+        wrapperStyle={styles.dayStyle}
+        textStyle={styles.dayText}
+      />
+    );
+  };
+
   get user() {
     return {
       _id: this.props.user.key,
       id: this.props.route.params.reciverId,
       email: this.props.user.email,
       roomID: this.props.route.params.roomID,
+      name: this.props.route.params.receiverName,
     };
   }
   render() {
@@ -156,6 +187,12 @@ export default class ChatMain extends Component<Props, State> {
               <Image source={images.chatBack} style={styles.headerBack} />
             </TouchableOpacity>
             <Image style={styles.headerImg} source={images.placeHolder} />
+            <Text style={styles.headerName}>
+              {this.props.route.params.receiverName}
+            </Text>
+            {this.state.isTyping ? (
+              <Text style={styles.headerName}> ({strings.typing})</Text>
+            ) : null}
           </View>
         </View>
         <GiftedChat
@@ -176,6 +213,8 @@ export default class ChatMain extends Component<Props, State> {
             this.giftedChatRef = ref;
           }}
           onInputTextChanged={(text: string) => this.typingIndicator(text)}
+          renderDay={this.renderDay}
+          renderTime={this.renderTime}
         />
       </>
     );

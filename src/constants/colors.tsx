@@ -21,6 +21,8 @@ const colors = {
   blackish: 'rgb(35,35,35)',
   chatGreen: 'rgb(4,131,123)',
   typeMsgGrey: 'rgb(140,140,140)',
+  day: 'rgb(214, 231, 230)',
+  greyishBrown: 'rgb(89, 89, 89)',
 };
 
 export default colors;
