@@ -22,11 +22,13 @@ const strings = {
   verificationText:
     'The Verification Code was sent to your\nemail address. Please enter below:',
   Social: 'moresocial',
-  Edit:'Edit Profile',
-  shembe:'Shembe',
-  Chats:'Chats',
+  Edit: 'Edit Profile',
+  shembe: 'Shembe',
+  Chats: 'Chats',
   typeMsg: 'Type Message',
   typing: 'Typing...',
+  List: 'Todo List',
+  addTask:'Add Task For Today'
 };
 
 export default strings;

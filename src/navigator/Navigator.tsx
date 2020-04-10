@@ -20,6 +20,8 @@ import SignUp from '../containers/SignUp/index';
 import Chatlist from '../containers/Chat/ChatList/index';
 import ChatMain from '../containers/Chat/ChatMain/index';
 import InboxFlatList from '../containers/Chat/ChatList/InboxFlatList';
+import MainList from '../containers/TodoList/mainList';
+import TodoList from '../containers/TodoList/TodoList';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {vw, vh} from '../constants/dimensions';
 import images from '../constants/images';
@@ -61,6 +63,8 @@ export default class Navigator extends React.Component<Props, State> {
           <Stack.Screen name={'ChatMain'} component={ChatMain} />
           <Stack.Screen name={'InboxFlatList'} component={InboxFlatList} />
           <Stack.Screen name={'Chatlist'} component={Chatlist} />
+          <Stack.Screen name={'MainList'} component={MainList} />
+          <Stack.Screen name={'TodoList'} component={TodoList} />
         </Stack.Navigator>
       </NavigationContainer>
     );

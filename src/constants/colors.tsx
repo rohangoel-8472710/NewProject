@@ -24,6 +24,7 @@ const colors = {
   day: 'rgb(214, 231, 230)',
   greyishBrown: 'rgb(89, 89, 89)',
   socialColor: '#25A6E9',
+  purple:'#7a42f4'
 };
 
 export default colors;
