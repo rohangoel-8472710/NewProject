@@ -13,6 +13,7 @@ import strings from '../../constants/strings';
 import colors from '../../constants/colors';
 import styles from './styles';
 import Firebaseservices from '../../utils/FirebaseServices';
+import {vw} from '../../constants/dimensions';
 interface Props {
   navigation?: any;
   email: string;
@@ -24,6 +25,7 @@ interface State {
   email: string;
   password: string;
   animate: boolean;
+  valueChange: boolean;
 }
 
 export default class SignUp extends Component<Props, State> {
@@ -35,6 +37,7 @@ export default class SignUp extends Component<Props, State> {
       email: '',
       password: '',
       animate: false,
+      valueChange: false,
     };
   }
   signUp = () => {
@@ -72,6 +75,29 @@ export default class SignUp extends Component<Props, State> {
       {cancelable: false},
     );
   };
+
+  // validateEmail = (email: any) => {
+  //   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   return re.test(email);
+  // };
+  // changeInput = (text: number) => {
+  //   return (
+  //     <View>
+  //       <TextInput
+  //         style={styles.textInputEmail}
+  //         placeholder={strings.Mobile}
+  //         placeholderTextColor={colors.warmGrey50}
+  //         keyboardType="number-pad"
+  //         onSubmitEditing={() => {
+  //           this.secondInput.focus();
+  //         }}
+  //         ref={ref => {
+  //           this.firstInput = ref;
+  //         }}
+  //       />
+  //     </View>
+  //   );
+  // };
   render() {
     return (
       <ImageBackground
@@ -85,7 +111,31 @@ export default class SignUp extends Component<Props, State> {
             placeholder={strings.emailPlaceholder}
             placeholderTextColor={colors.warmGrey50}
             returnKeyType="next"
-            onChangeText={(text: string) => this.setState({email: text})}
+            // onChangeText={(text: string) => this.setState({email: text})}
+            onChangeText={(value: any) => {
+              let num = value;
+              if (isNaN(num)) {
+                {
+                  this.state.valueChange ? null : (
+                    <View>
+                      <TextInput
+                        style={{
+                          backgroundColor: 'red',
+                          height: vw(50),
+                          borderWidth: vw(1),
+                          borderRadius: vw(25),
+                        }}
+                        placeholder={strings.Mobile}
+                        placeholderTextColor={colors.warmGrey50}
+                        keyboardType="number-pad"
+                      />
+                    </View>
+                  );
+                }
+              }else{
+                
+              }
+            }}
             autoCorrect={false}
             keyboardType="email-address"
             ref={ref => {

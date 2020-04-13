@@ -99,6 +99,17 @@ const styles = StyleSheet.create({
     height: vh(20),
     resizeMode: 'contain',
   },
+  editText:{
+    fontSize:vw(17),
+    color: colors.textInput,
+    marginRight:vw(13),
+    marginTop:vw(5)
+  },
+  checkBox:{
+    height:vw(20),
+    width:vw(20),
+    alignSelf:'flex-end',
+  }
 });
 
 export default styles;
