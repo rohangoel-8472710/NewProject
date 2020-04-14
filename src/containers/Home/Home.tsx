@@ -19,7 +19,7 @@ import Share from 'react-native-share';
 import CheckBox from 'react-native-check-box';
 interface Props {}
 interface State {}
-
+console.disableYellowBox = true;
 export default function Home() {
   const [articles, setarticles] = useState([]);
   const [showMore, setshowMore] = useState(null);
@@ -30,7 +30,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=485cbadfd80340c988f991a7c443a3e1',
+        'https://newsapi.org/v2/everything?q=noida&apiKey=2f1d4ad7b05c4b65a4070643958fd3cb',
       )
       .then(response => {
         console.log(response.data);
@@ -45,14 +45,16 @@ export default function Home() {
     setshowcheckBox(!showcheckBox);
   };
   const toogleCheck = (id: any) => {
-    if (id.key === id) setSelection(!isSelected);
+    setSelection(!isSelected);
   };
-
-  // const deleteData = (index: any) => {
-  //   let temp = articles;
-  //   temp.splice(parseInt(index), 1);
-  //   setarticles(temp.splice(0));
-  // };
+  const uncheckedall = () => {
+    setSelection(!isSelected);
+  };
+  const deleteData = (index: any) => {
+    let temp = articles;
+    temp.splice(parseInt(index), 1);
+    setarticles(temp.splice(0));
+  };
   // const handleRefresh = () => {
   //   setRefreshing(true);
   //   axios.get(
@@ -123,15 +125,19 @@ export default function Home() {
           placeholder={strings.splashText}
         />
       </View>
-      <>
-        {showcheckBox ? (
-          <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity style={styles.button}>
-              <Text>Next</Text>
-            </TouchableOpacity>
-          </View>
-        ) : null}
-      </>
+      {showcheckBox ? (
+        <>
+          <TouchableOpacity style={styles.buttonNext} activeOpacity={0.7}>
+            <Text style={styles.nextText}>Next</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonCancel}
+            activeOpacity={0.7}
+            onPress={() => uncheckedall()}>
+            <Text style={styles.nextText}>Cancel</Text>
+          </TouchableOpacity>
+        </>
+      ) : null}
       <FlatList
         showsVerticalScrollIndicator={false}
         data={articles}
@@ -145,7 +151,7 @@ export default function Home() {
                     <CheckBox
                       style={styles.checkBox}
                       isChecked={isSelected}
-                      onClick={() => toogleCheck(articles[index])}
+                      onClick={() => toogleCheck(index)}
                     />
                   ) : null}
                   <Text style={styles.titleText}>{articles[index].title}</Text>
@@ -166,6 +172,7 @@ export default function Home() {
         pagingEnabled={true}
         disableIntervalMomentum={true}
         refreshing={refreshing}
+        bounces={false}
         // onRefresh={handleRefresh}
       />
     </>

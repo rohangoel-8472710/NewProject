@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
   },
   cardView: {
     paddingTop: vw(14),
-    backgroundColor:'red'
   },
   cardBox: {
     width: vw(350),
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
     borderRadius: vw(30),
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:vw(20)
+    marginTop: vw(20),
   },
   shareImage: {
     width: vw(14),
@@ -93,30 +92,53 @@ const styles = StyleSheet.create({
     borderRadius: vw(30),
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:vw(20)
+    marginTop: vw(20),
   },
   deleteImage: {
     width: vw(13),
     height: vh(20),
     resizeMode: 'contain',
   },
-  editText:{
-    fontSize:vw(17),
+  editText: {
+    fontSize: vw(17),
     color: colors.textInput,
-    marginRight:vw(13),
-    marginTop:vw(5)
+    marginRight: vw(13),
+    marginTop: vw(5),
   },
-  checkBox:{
-    height:vw(20),
-    width:vw(20),
-    alignSelf:'flex-end',
+  checkBox: {
+    height: vw(20),
+    width: vw(20),
+    alignSelf: 'flex-end',
   },
-  button:{
-    position:'absolute',
-    width:vw(30),
-    height:vw(30),
-    backgroundColor:'blue'
-  }
+  buttonNext: {
+    width: vw(120),
+    height: vw(43),
+    borderRadius: vw(21),
+    backgroundColor: colors.waterBlue,
+    position: 'absolute',
+    zIndex: 1,
+    left: vw(210),
+    top: vw(650),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  nextText: {
+    fontSize: vw(15),
+    color: colors.white,
+    textAlign: 'center',
+  },
+  buttonCancel: {
+    width: vw(120),
+    height: vw(43),
+    borderRadius: vw(21),
+    backgroundColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    zIndex: 1,
+    top: vw(650),
+    left:vw(50)
+  },
 });
 
 export default styles;
