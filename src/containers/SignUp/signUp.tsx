@@ -14,6 +14,7 @@ import colors from '../../constants/colors';
 import styles from './styles';
 import Firebaseservices from '../../utils/FirebaseServices';
 import {vw} from '../../constants/dimensions';
+import {Dropdown} from 'react-native-material-dropdown';
 interface Props {
   navigation?: any;
   email: string;
@@ -25,7 +26,7 @@ interface State {
   email: string;
   password: string;
   animate: boolean;
-  valueChange: boolean;
+  visible: boolean;
 }
 
 export default class SignUp extends Component<Props, State> {
@@ -37,7 +38,7 @@ export default class SignUp extends Component<Props, State> {
       email: '',
       password: '',
       animate: false,
-      valueChange: false,
+      visible: false,
     };
   }
   signUp = () => {
@@ -75,30 +76,18 @@ export default class SignUp extends Component<Props, State> {
       {cancelable: false},
     );
   };
-
-  // validateEmail = (email: any) => {
-  //   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //   return re.test(email);
-  // };
-  // changeInput = (text: number) => {
-  //   return (
-  //     <View>
-  //       <TextInput
-  //         style={styles.textInputEmail}
-  //         placeholder={strings.Mobile}
-  //         placeholderTextColor={colors.warmGrey50}
-  //         keyboardType="number-pad"
-  //         onSubmitEditing={() => {
-  //           this.secondInput.focus();
-  //         }}
-  //         ref={ref => {
-  //           this.firstInput = ref;
-  //         }}
-  //       />
-  //     </View>
-  //   );
-  // };
   render() {
+    let data = [
+      {
+        value: '+92',
+      },
+      {
+        value: '+93',
+      },
+      {
+        value: '+94',
+      },
+    ];
     return (
       <ImageBackground
         style={styles.imageStyle}
@@ -106,46 +95,36 @@ export default class SignUp extends Component<Props, State> {
         <View style={styles.container}>
           <Text style={styles.heading}>{strings.newProject}</Text>
           <Text style={styles.subHeading}>{strings.splashText}</Text>
-          <TextInput
-            style={styles.textInputEmail}
-            placeholder={strings.emailPlaceholder}
-            placeholderTextColor={colors.warmGrey50}
-            returnKeyType="next"
-            // onChangeText={(text: string) => this.setState({email: text})}
-            onChangeText={(value: any) => {
-              let num = value;
-              if (isNaN(num)) {
-                {
-                  this.state.valueChange ? null : (
-                    <View>
-                      <TextInput
-                        style={{
-                          backgroundColor: 'red',
-                          height: vw(50),
-                          borderWidth: vw(1),
-                          borderRadius: vw(25),
-                        }}
-                        placeholder={strings.Mobile}
-                        placeholderTextColor={colors.warmGrey50}
-                        keyboardType="number-pad"
-                      />
-                    </View>
-                  );
+          <View style={styles.inputView}>
+            {this.state.visible ? (
+              <Dropdown data={data} containerStyle={styles.dropBox} />
+            ) : null}
+            <TextInput
+              style={styles.textInputEmail}
+              placeholder={strings.emailPlaceholder}
+              placeholderTextColor={colors.warmGrey50}
+              returnKeyType="next"
+              // onChangeText={(text: string) => this.setState({email: text})}
+              onChangeText={value => {
+                if (value.match('^[0-9]+$')) {
+                  {
+                    this.setState({visible: true});
+                  }
+                } else {
+                  this.setState({visible: false});
                 }
-              }else{
-                
-              }
-            }}
-            autoCorrect={false}
-            keyboardType="email-address"
-            ref={ref => {
-              this.firstInput = ref;
-            }}
-            onSubmitEditing={() => {
-              this.secondInput.focus();
-            }}
-            autoCapitalize="none"
-          />
+              }}
+              autoCorrect={false}
+              keyboardType="email-address"
+              ref={ref => {
+                this.firstInput = ref;
+              }}
+              onSubmitEditing={() => {
+                this.secondInput.focus();
+              }}
+              autoCapitalize="none"
+            />
+          </View>
           <TextInput
             style={styles.textInputPassword}
             placeholder={strings.password}

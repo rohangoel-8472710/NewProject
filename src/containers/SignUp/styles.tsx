@@ -63,6 +63,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: vw(5),
   },
+  inputView:{
+    flexDirection:'row',
+    justifyContent:'space-between'
+  },
+  dropBox:{
+    width:vw(60),
+    marginTop:vw(40),
+    marginLeft:vw(10)
+  }
 });
 
 export default styles;

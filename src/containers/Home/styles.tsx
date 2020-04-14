@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   },
   cardView: {
     paddingTop: vw(14),
+    backgroundColor:'red'
   },
   cardBox: {
     width: vw(350),
@@ -109,6 +110,12 @@ const styles = StyleSheet.create({
     height:vw(20),
     width:vw(20),
     alignSelf:'flex-end',
+  },
+  button:{
+    position:'absolute',
+    width:vw(30),
+    height:vw(30),
+    backgroundColor:'blue'
   }
 });
 

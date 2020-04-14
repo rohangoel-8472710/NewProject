@@ -30,7 +30,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=40b5923a40c245548e06876f6576c57a',
+        'https://newsapi.org/v2/everything?q=noida&apiKey=485cbadfd80340c988f991a7c443a3e1',
       )
       .then(response => {
         console.log(response.data);
@@ -45,9 +45,7 @@ export default function Home() {
     setshowcheckBox(!showcheckBox);
   };
   const toogleCheck = (id: any) => {
-    if (id === articles[id]) {
-      setSelection(!isSelected);
-    }
+    if (id.key === id) setSelection(!isSelected);
   };
 
   // const deleteData = (index: any) => {
@@ -125,6 +123,15 @@ export default function Home() {
           placeholder={strings.splashText}
         />
       </View>
+      <>
+        {showcheckBox ? (
+          <View style={{flexDirection: 'row'}}>
+            <TouchableOpacity style={styles.button}>
+              <Text>Next</Text>
+            </TouchableOpacity>
+          </View>
+        ) : null}
+      </>
       <FlatList
         showsVerticalScrollIndicator={false}
         data={articles}
@@ -138,7 +145,7 @@ export default function Home() {
                     <CheckBox
                       style={styles.checkBox}
                       isChecked={isSelected}
-                      onClick={() => toogleCheck(articles[index].id)}
+                      onClick={() => toogleCheck(articles[index])}
                     />
                   ) : null}
                   <Text style={styles.titleText}>{articles[index].title}</Text>
