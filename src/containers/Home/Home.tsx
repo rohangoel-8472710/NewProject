@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
-  ActivityIndicator,
+  SectionList,
 } from 'react-native';
 import images from '../../constants/images';
 import strings from '../../constants/strings';
@@ -17,6 +17,7 @@ import styles from './styles';
 import Swipeable from 'react-native-swipeable';
 import Share from 'react-native-share';
 import CheckBox from 'react-native-check-box';
+import {vw} from '../../constants/dimensions';
 interface Props {}
 interface State {}
 console.disableYellowBox = true;
@@ -26,11 +27,12 @@ export default function Home() {
   const [isFetching, setFetching] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [isSelected, setSelection] = useState(false);
+  const [showlist, setShowList] = useState(false);
   const [showcheckBox, setshowcheckBox] = useState(false);
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=2f1d4ad7b05c4b65a4070643958fd3cb',
+        'https://newsapi.org/v2/everything?q=noida&apiKey=477e71962394439e977fe4ebd221e47c',
       )
       .then(response => {
         console.log(response.data);
@@ -44,8 +46,11 @@ export default function Home() {
   const handleClick = () => {
     setshowcheckBox(!showcheckBox);
   };
-  const toogleCheck = (id: any) => {
+  const toogleCheck = (index: any) => {
     setSelection(!isSelected);
+  };
+  const changeList = () => {
+    setShowList(!showlist);
   };
   const uncheckedall = () => {
     setSelection(!isSelected);
@@ -105,6 +110,51 @@ export default function Home() {
       <Image style={styles.deleteImage} source={images.delete} />
     </TouchableOpacity>,
   ];
+
+  const DATA = [
+    {
+      title: 'A',
+      data: [articles.filter(index)],
+    },
+    {
+      title: 'C',
+      data: [articles.filter(index)],
+    },
+    {
+      title: 'D',
+      data: [articles.filter(index)],
+    },
+    {
+      title: 'I',
+      data: [articles.filter(index)],
+    },
+    {
+      title: 'N',
+      data: [articles.filter(index)],
+    },
+    {
+      title: 'S',
+      data: [articles.filter(index)],
+    },
+    {
+      title: 'T',
+      data: [articles.filter(index)],
+    },
+    {
+      title: 'U',
+      data: [articles.filter(index)],
+    },
+    {
+      title: 'W',
+      data: [articles.filter(index)],
+    },
+  ];
+
+  const Item = ({title}) => (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
   return (
     <>
       <SafeAreaView style={styles.header}>
@@ -125,6 +175,14 @@ export default function Home() {
           placeholder={strings.splashText}
         />
       </View>
+      <TouchableOpacity
+        style={{alignItems: 'flex-end'}}
+        onPress={() => changeList()}
+        activeOpacity={0.7}>
+        <Text style={styles.divideText}>
+          {showlist ? 'Back To Normal' : 'Divide into Section'}
+        </Text>
+      </TouchableOpacity>
       {showcheckBox ? (
         <>
           <TouchableOpacity style={styles.buttonNext} activeOpacity={0.7}>
@@ -138,43 +196,62 @@ export default function Home() {
           </TouchableOpacity>
         </>
       ) : null}
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={articles}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({item, index}) => {
-          return (
-            <View style={styles.cardView}>
-              <Swipeable rightButtons={rightButtons}>
-                <View style={styles.cardBox}>
-                  {showcheckBox ? (
-                    <CheckBox
-                      style={styles.checkBox}
-                      isChecked={isSelected}
-                      onClick={() => toogleCheck(index)}
-                    />
-                  ) : null}
-                  <Text style={styles.titleText}>{articles[index].title}</Text>
-                  <TouchableOpacity
-                    activeOpacity={0.6}
-                    onPress={() => showToggleRead(index)}>
-                    <Text
-                      style={styles.descriptionText}
-                      numberOfLines={showMore == index ? 0 : 2}>
-                      {articles[index].description}
+      {showlist ? (
+        <View style={{marginTop: vw(20)}}>
+          <SectionList
+            sections={DATA}
+            keyExtractor={(item, index) => item + index}
+            renderItem={({item}) => <Item title={item} />}
+            renderSectionHeader={({section: {title}}) => (
+              <View style={styles.headerListView}>
+                <Text style={styles.headerListText}>{title}</Text>
+              </View>
+            )}
+            showsVerticalScrollIndicator={false}
+            bounces={false}
+          />
+        </View>
+      ) : (
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={articles}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({item, index}) => {
+            return (
+              <View style={styles.cardView}>
+                <Swipeable rightButtons={rightButtons}>
+                  <View style={styles.cardBox}>
+                    {showcheckBox ? (
+                      <CheckBox
+                        style={styles.checkBox}
+                        isChecked={isSelected}
+                        onClick={() => toogleCheck(item)}
+                      />
+                    ) : null}
+                    <Text style={styles.titleText}>
+                      {articles[index].title}
                     </Text>
-                  </TouchableOpacity>
-                </View>
-              </Swipeable>
-            </View>
-          );
-        }}
-        pagingEnabled={true}
-        disableIntervalMomentum={true}
-        refreshing={refreshing}
-        bounces={false}
-        // onRefresh={handleRefresh}
-      />
+                    <TouchableOpacity
+                      activeOpacity={0.6}
+                      onPress={() => showToggleRead(index)}>
+                      <Text
+                        style={styles.descriptionText}
+                        numberOfLines={showMore == index ? 0 : 2}>
+                        {articles[index].description}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                </Swipeable>
+              </View>
+            );
+          }}
+          pagingEnabled={true}
+          disableIntervalMomentum={true}
+          refreshing={refreshing}
+          bounces={false}
+          // onRefresh={handleRefresh}
+        />
+      )}
     </>
   );
 }

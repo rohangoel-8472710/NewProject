@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../constants/colors';
-import {vw, vh, DesignHeight} from '../../constants/dimensions';
+import {vw, vh} from '../../constants/dimensions';
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
@@ -137,7 +137,37 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 1,
     top: vw(650),
-    left:vw(50)
+    left: vw(50),
+  },
+  divideText: {
+    fontSize: vw(15),
+    marginRight: vw(20),
+  },
+  item: {
+    padding: vw(10),
+    marginVertical: vw(8),
+    width: vw(350),
+    alignSelf: 'center',
+    backgroundColor: colors.textInput,
+    borderWidth: vw(1),
+    borderColor: colors.border,
+    borderRadius: vw(6),
+  },
+  title: {
+    fontSize: vw(20),
+    color: colors.black,
+  },
+  headerListView: {
+    backgroundColor: colors.grey,
+    width: vw(350),
+    alignSelf: 'center',
+    borderWidth: vw(1),
+    borderColor: colors.border,
+  },
+  headerListText: {
+    fontSize: vw(30),
+    color: colors.black,
+    marginLeft: vw(10),
   },
 });
 
