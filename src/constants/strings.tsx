@@ -29,7 +29,8 @@ const strings = {
   typing: 'Typing...',
   List: 'Todo List',
   addTask:'Add Task For Today',
-  Mobile:'Mobile Number'
+  Mobile:'Mobile Number',
+  search:'Search'
 };
 
 export default strings;
