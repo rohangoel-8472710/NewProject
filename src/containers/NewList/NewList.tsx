@@ -20,9 +20,8 @@ Icon2.loadFont();
 interface Props {}
 interface State {
   DATA: any;
-  newData: any;
 }
-
+var newData: any[] = [];
 export default class NewList extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -35,25 +34,28 @@ export default class NewList extends Component<Props, State> {
         {value: 'Drawing'},
         {value: 'Exercising'},
       ],
-      newData: [],
     };
   }
 
   FlatListItemSeparator = () => {
     return <View style={styles.separator} />;
   };
+  indexValue = (item: any) => {
+    return item.value;
+  };
 
   getItem = (item: any) => {
-    let temp = this.state.DATA;
-    temp.splice(parseInt(item.value), -1);
+    var temp = this.state.DATA;
+    temp.splice(parseInt(item.value), 0);
     this.setState({DATA: temp.splice(1)});
-    this.setState({newData: temp.splice(-1)});
+
+    newData.push(this.state.DATA);
   };
   returnItem = (item: any) => {
-    let arr = this.state.newData;
+    let arr = newData;
     arr.splice(parseInt(item), -1);
-    this.setState({newData: arr.splice(1)});
-    this.setState({DATA:arr.splice(1)});
+    // this.setState({newData: arr.splice(1)});
+    newData.splice(1), this.setState({DATA: arr.splice(1)});
   };
   render() {
     return (
@@ -75,7 +77,7 @@ export default class NewList extends Component<Props, State> {
           horizontal={true}
           bounces={false}
           showsHorizontalScrollIndicator={false}
-          data={this.state.newData}
+          data={newData}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => {
             return (

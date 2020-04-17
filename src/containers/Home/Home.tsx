@@ -18,6 +18,7 @@ import Swipeable from 'react-native-swipeable';
 import Share from 'react-native-share';
 import CheckBox from 'react-native-check-box';
 import {vw} from '../../constants/dimensions';
+console.disableYellowBox = true;
 interface Props {}
 interface State {}
 export default function Home() {
@@ -31,7 +32,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=477e71962394439e977fe4ebd221e47c',
+        'https://newsapi.org/v2/everything?q=noida&apiKey=05dcc82b07644bf29f0a9a64118a5328',
       )
       .then(response => {
         console.log(response.data);
@@ -46,8 +47,8 @@ export default function Home() {
     setshowcheckBox(!showcheckBox);
   };
   const toogleCheck = (id: any, index: any) => {
-    articles[index].id = id;
-    setSelection(isSelected.push(id));
+    articles.id = id;
+    isSelected.push(id);
   };
   const changeList = () => {
     setShowList(!showlist);
@@ -225,7 +226,6 @@ export default function Home() {
     const Item = ({title}) => (
       <View style={styles.item}>
                  <Text style={styles.title}>{title}</Text>
-               
       </View>
     );
   } else {
@@ -301,8 +301,8 @@ export default function Home() {
                     {showcheckBox ? (
                       <CheckBox
                         style={styles.checkBox}
-                        isChecked={!isSelected.id}
-                        onClick={() => toogleCheck(item, index)}
+                        isChecked={articles[index]}
+                        onClick={() => toogleCheck(articles[index], item)}
                       />
                     ) : null}
                     <Text style={styles.titleText}>
