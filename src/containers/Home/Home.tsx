@@ -32,7 +32,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=05dcc82b07644bf29f0a9a64118a5328',
+        'https://newsapi.org/v2/everything?q=noida&apiKey=d410fd5a834048f99d32f44b11f12239',
       )
       .then(response => {
         console.log(response.data);
@@ -46,9 +46,8 @@ export default function Home() {
   const handleClick = () => {
     setshowcheckBox(!showcheckBox);
   };
-  const toogleCheck = (id: any, index: any) => {
-    articles.id = id;
-    isSelected.push(id);
+  const toogleCheck = (id: any) => {
+    setSelection(articles[id]);
   };
   const changeList = () => {
     setShowList(!showlist);
@@ -111,126 +110,126 @@ export default function Home() {
       <Image style={styles.deleteImage} source={images.delete} />
     </TouchableOpacity>,
   ];
-  const DATA = [
-    {
-      title: 'A',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'B',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'C',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'D',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'E',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'F',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'G',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'H',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'I',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'J',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'K',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'L',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'M',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'N',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'N',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'O',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'P',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'Q',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'R',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'S',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'T',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'U',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'V',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'W',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'X',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'Y',
-      data: [articles.filter(index).title],
-    },
-    {
-      title: 'Z',
-      data: [articles.filter(index).title],
-    },
-  ];
+  // const DATA = [
+  //   {
+  //     title: 'A',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'B',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'C',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'D',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'E',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'F',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'G',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'H',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'I',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'J',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'K',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'L',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'M',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'N',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'N',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'O',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'P',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'Q',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'R',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'S',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'T',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'U',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'V',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'W',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'X',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'Y',
+  //     data: [articles.filter(index).title],
+  //   },
+  //   {
+  //     title: 'Z',
+  //     data: [articles.filter(index).title],
+  //   },
+  // ];
 
-  if (articles.filter(index).title != null) {
-    const Item = ({title}) => (
-      <View style={styles.item}>
-                 <Text style={styles.title}>{title}</Text>
-      </View>
-    );
-  } else {
-    return null;
-  }
+  // if (articles.filter(index).title != null) {
+  //   const Item = ({title}) => (
+  //     <View style={styles.item}>
+  //                <Text style={styles.title}>{title}</Text>
+  //     </View>
+  //   );
+  // } else {
+  //   return null;
+  // }
 
   return (
     <>
@@ -301,8 +300,8 @@ export default function Home() {
                     {showcheckBox ? (
                       <CheckBox
                         style={styles.checkBox}
-                        isChecked={articles[index]}
-                        onClick={() => toogleCheck(articles[index], item)}
+                        isChecked={!index}
+                        onClick={() => toogleCheck(index)}
                       />
                     ) : null}
                     <Text style={styles.titleText}>

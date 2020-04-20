@@ -20,8 +20,8 @@ Icon2.loadFont();
 interface Props {}
 interface State {
   DATA: any;
+  newData: any;
 }
-var newData: any[] = [];
 export default class NewList extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -34,28 +34,27 @@ export default class NewList extends Component<Props, State> {
         {value: 'Drawing'},
         {value: 'Exercising'},
       ],
+      newData: [],
     };
   }
 
   FlatListItemSeparator = () => {
     return <View style={styles.separator} />;
   };
-  indexValue = (item: any) => {
-    return item.value;
-  };
 
   getItem = (item: any) => {
-    var temp = this.state.DATA;
-    temp.splice(parseInt(item.value), 0);
-    this.setState({DATA: temp.splice(1)});
-
-    newData.push(this.state.DATA);
+    let temp = this.state.DATA;
+    let index = temp.indexOf(item);
+    temp.splice(index, 1);
+    this.setState({DATA: temp});
+    this.state.newData.push(item);
   };
   returnItem = (item: any) => {
-    let arr = newData;
-    arr.splice(parseInt(item), -1);
-    // this.setState({newData: arr.splice(1)});
-    newData.splice(1), this.setState({DATA: arr.splice(1)});
+    let arr = this.state.newData;
+    let index1 = arr.indexOf(item.value);
+    arr.splice(index1, 1);
+    this.setState({newData: arr});
+    this.state.DATA.push(item.value);
   };
   render() {
     return (
@@ -77,14 +76,14 @@ export default class NewList extends Component<Props, State> {
           horizontal={true}
           bounces={false}
           showsHorizontalScrollIndicator={false}
-          data={newData}
+          data={this.state.newData}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => {
             return (
               <View style={styles.horizontalFlatList}>
-                <Text style={styles.horizontalText}>{item.value}</Text>
+                <Text style={styles.horizontalText}>{item}</Text>
                 <View style={styles.circleView}>
-                  <TouchableOpacity onPress={() => this.returnItem(item.value)}>
+                  <TouchableOpacity onPress={() => this.returnItem(item)}>
                     <Icon2
                       name="cross"
                       color={colors.chatGreen}
@@ -107,7 +106,7 @@ export default class NewList extends Component<Props, State> {
             return (
               <View style={styles.flatListView}>
                 <Text style={styles.listText}>{item.value}</Text>
-                <TouchableOpacity onPress={() => this.getItem(item.value)}>
+                <TouchableOpacity onPress={() => this.getItem(item)}>
                   <Icon
                     name="pluscircleo"
                     color={colors.chatGreen}
