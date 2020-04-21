@@ -23,6 +23,7 @@ import InboxFlatList from '../containers/Chat/ChatList/InboxFlatList';
 import MainList from '../containers/TodoList/mainList';
 import TodoList from '../containers/TodoList/TodoList';
 import NewList from '../containers/NewList/NewList';
+import Music from '../containers/Music/Music';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {vw, vh} from '../constants/dimensions';
 import images from '../constants/images';
@@ -40,6 +41,7 @@ function TabBar() {
       <Tab.Screen name={'Edit'} component={Edit} />
       <Tab.Screen name={'Messages'} component={Chatlist} />
       <Tab.Screen name={'Activities'} component={NewList} />
+      <Tab.Screen name={'Music'} component={Music} />
     </Tab.Navigator>
   );
 }

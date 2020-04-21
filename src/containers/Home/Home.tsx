@@ -18,7 +18,7 @@ import Swipeable from 'react-native-swipeable';
 import Share from 'react-native-share';
 import CheckBox from 'react-native-check-box';
 import {vw} from '../../constants/dimensions';
-console.disableYellowBox = true;
+// console.disableYellowBox = true;
 interface Props {}
 interface State {}
 export default function Home() {
@@ -35,7 +35,7 @@ export default function Home() {
         'https://newsapi.org/v2/everything?q=noida&apiKey=d410fd5a834048f99d32f44b11f12239',
       )
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         setarticles(response.data.articles);
       });
   });

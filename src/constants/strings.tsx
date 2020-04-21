@@ -28,9 +28,10 @@ const strings = {
   typeMsg: 'Type Message',
   typing: 'Typing...',
   List: 'Todo List',
-  addTask:'Add Task For Today',
-  Mobile:'Mobile Number',
-  search:'Search'
+  addTask: 'Add Task For Today',
+  Mobile: 'Mobile Number',
+  search: 'Search',
+  Audrix: 'Audrix',
 };
 
 export default strings;
