@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: vw(15),
     borderRadius: vw(10),
+    color:colors.white
   },
   listView: {
     paddingTop: vw(14),

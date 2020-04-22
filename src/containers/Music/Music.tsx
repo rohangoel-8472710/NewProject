@@ -18,6 +18,7 @@ interface Props {}
 interface State {
   fetchedData: any;
   showSort: boolean;
+  text: any;
 }
 
 export default class Music extends Component<Props, State> {
@@ -26,7 +27,10 @@ export default class Music extends Component<Props, State> {
     this.state = {
       fetchedData: [],
       showSort: false,
+      text: '',
     };
+    let arrayholder = [];
+    let temp = [];
   }
   componentDidMount() {
     axios
@@ -41,7 +45,10 @@ export default class Music extends Component<Props, State> {
       })
       .then(response => {
         console.log(response.data);
-        this.setState({fetchedData: response.data.data});
+        this.setState({fetchedData: response.data.data}, () => {
+          arrayholder = response.data.data;
+          // temp = response.data.data;
+        });
       })
       .catch(err => {
         console.log(err);
@@ -52,8 +59,21 @@ export default class Music extends Component<Props, State> {
     this.setState({showSort: !this.state.showSort});
   };
 
-  sortAtoZ = (index: any) => {
-    this.setState({fetchedData: this.state.fetchedData[index].title.sort()});
+  searchData = (text: any) => {
+    const newData = arrayholder.filter((item: any) => {
+      const itemData = item.title.toUpperCase();
+      const textData = text.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+    this.setState({fetchedData: newData, text: text});
+    // console.warn('fetched data is',this.state.fetchedData);
+  };
+
+  sortAtoZ = () => {
+    const sortData = arrayholder.sort((item: any) => {
+    });
+    this.setState({fetchedData: sortData, showSort: false});
+    // console.log('sorted data is', this.state.fetchedData);
   };
 
   render() {
@@ -76,7 +96,6 @@ export default class Music extends Component<Props, State> {
             <View style={styles.list}>
               <TouchableOpacity
                 onPress={() => {
-                  this.setState({showSort: false});
                   this.sortAtoZ();
                 }}>
                 <Text style={styles.commonText}>Name (A to Z)</Text>
@@ -104,7 +123,8 @@ export default class Music extends Component<Props, State> {
               style={styles.searchInput}
               placeholder={strings.search}
               placeholderTextColor={colors.textInput}
-              returnKeyType="search"
+              value={this.state.text}
+              onChangeText={text => this.searchData(text)}
             />
             <FlatList
               data={this.state.fetchedData}
