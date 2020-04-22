@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: vw(21),
-    textAlign: 'left',
     color: colors.textInput,
   },
   sortText: {
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: vw(15),
     borderRadius: vw(10),
-    color:colors.white
+    color: colors.white,
   },
   listView: {
     paddingTop: vw(14),
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
     fontSize: vw(12),
     color: colors.grey,
     marginLeft: vw(15),
-    marginTop: vw(10),
+    marginTop: vw(8),
   },
   sortView: {
     flex: 1,
@@ -85,6 +84,20 @@ const styles = StyleSheet.create({
     fontSize: vw(15),
     color: colors.grey,
     margin: vw(20),
+  },
+  rankAndDurationView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  rankText: {
+    fontSize: vw(12),
+    color: colors.grey,
+    marginLeft: vw(15),
+  },
+  durationText: {
+    fontSize: vw(12),
+    color: colors.grey,
   },
 });
 export default styles;

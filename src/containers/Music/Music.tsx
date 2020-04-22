@@ -13,7 +13,7 @@ import images from '../../constants/images';
 import strings from '../../constants/strings';
 import colors from '../../constants/colors';
 import axios from 'axios';
-import {vw} from '../../constants/dimensions';
+console.disableYellowBox = true;
 interface Props {}
 interface State {
   fetchedData: any;
@@ -30,7 +30,6 @@ export default class Music extends Component<Props, State> {
       text: '',
     };
     let arrayholder = [];
-    let temp = [];
   }
   componentDidMount() {
     axios
@@ -47,7 +46,6 @@ export default class Music extends Component<Props, State> {
         console.log(response.data);
         this.setState({fetchedData: response.data.data}, () => {
           arrayholder = response.data.data;
-          // temp = response.data.data;
         });
       })
       .catch(err => {
@@ -66,14 +64,49 @@ export default class Music extends Component<Props, State> {
       return itemData.indexOf(textData) > -1;
     });
     this.setState({fetchedData: newData, text: text});
-    // console.warn('fetched data is',this.state.fetchedData);
   };
 
   sortAtoZ = () => {
-    const sortData = arrayholder.sort((item: any) => {
+    const sortData = arrayholder.sort(function(a: any, b: any) {
+      var nameA = a.title.toLowerCase();
+      var nameB = b.title.toLowerCase();
+      if (nameA < nameB) return -1;
+      return 0;
     });
     this.setState({fetchedData: sortData, showSort: false});
-    // console.log('sorted data is', this.state.fetchedData);
+  };
+  sortZtoA = () => {
+    const sortData = arrayholder.sort(function(a: any, b: any) {
+      var nameA = a.title.toLowerCase();
+      var nameB = b.title.toLowerCase();
+      if (nameA > nameB) return -1;
+      return 0;
+    });
+    this.setState({fetchedData: sortData, showSort: false});
+  };
+  durationLtoH = () => {
+    const sortData = arrayholder.sort(function(a: any, b: any) {
+      return a.duration - b.duration;
+    });
+    this.setState({fetchedData: sortData, showSort: false});
+  };
+  durationHtoL = () => {
+    const sortData = arrayholder.sort(function(a: any, b: any) {
+      return b.duration - a.duration;
+    });
+    this.setState({fetchedData: sortData, showSort: false});
+  };
+  RankLtoH = () => {
+    const sortData = arrayholder.sort(function(a: any, b: any) {
+      return a.rank - b.rank;
+    });
+    this.setState({fetchedData: sortData, showSort: false});
+  };
+  RankHtoL = () => {
+    const sortData = arrayholder.sort(function(a: any, b: any) {
+      return b.rank - a.rank;
+    });
+    this.setState({fetchedData: sortData, showSort: false});
   };
 
   render() {
@@ -97,22 +130,43 @@ export default class Music extends Component<Props, State> {
               <TouchableOpacity
                 onPress={() => {
                   this.sortAtoZ();
-                }}>
+                }}
+                activeOpacity={0.7}>
                 <Text style={styles.commonText}>Name (A to Z)</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.sortZtoA();
+                }}
+                activeOpacity={0.7}>
                 <Text style={styles.commonText}>Name (Z to A)</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.durationLtoH();
+                }}
+                activeOpacity={0.7}>
                 <Text style={styles.commonText}>Duration (Low to High)</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.durationHtoL();
+                }}
+                activeOpacity={0.7}>
                 <Text style={styles.commonText}>Duration (High to Low)</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.RankLtoH();
+                }}
+                activeOpacity={0.7}>
                 <Text style={styles.commonText}>Rank (Low to High)</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  this.RankHtoL();
+                }}
+                activeOpacity={0.7}>
                 <Text style={styles.commonText}>Rank (High to Low)</Text>
               </TouchableOpacity>
             </View>
@@ -137,13 +191,21 @@ export default class Music extends Component<Props, State> {
                       style={styles.albumImage}
                       source={{uri: this.state.fetchedData[index].album.cover}}
                     />
-                    <View>
+                    <View style={{width: '70%'}}>
                       <Text style={styles.titleText}>
                         {this.state.fetchedData[index].title}
                       </Text>
                       <Text style={styles.artistText}>
                         {this.state.fetchedData[index].artist.name}
                       </Text>
+                      <View style={styles.rankAndDurationView}>
+                        <Text style={styles.rankText}>
+                          {this.state.fetchedData[index].rank}
+                        </Text>
+                        <Text style={styles.durationText}>
+                          {this.state.fetchedData[index].duration}
+                        </Text>
+                      </View>
                     </View>
                   </View>
                 );
