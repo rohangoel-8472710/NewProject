@@ -13,6 +13,8 @@ import images from '../../constants/images';
 import strings from '../../constants/strings';
 import colors from '../../constants/colors';
 import axios from 'axios';
+import {vw, vh} from '../../constants/dimensions';
+import TrackPlayer from 'react-native-track-player';
 console.disableYellowBox = true;
 interface Props {}
 interface State {
@@ -51,6 +53,36 @@ export default class Music extends Component<Props, State> {
       .catch(err => {
         console.log(err);
       });
+    TrackPlayer.setupPlayer();
+    TrackPlayer.updateOptions({
+      stopWithApp: true,
+      capabilities: [
+        TrackPlayer.CAPABILITY_PLAY,
+        TrackPlayer.CAPABILITY_PAUSE,
+        TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+        TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+        TrackPlayer.CAPABILITY_STOP,
+      ],
+      compactCapabilities: [
+        TrackPlayer.CAPABILITY_PLAY,
+        TrackPlayer.CAPABILITY_PAUSE,
+      ],
+    });
+  }
+
+  async togglePlayback() {
+    const currentTrack = await TrackPlayer.getCurrentTrack();
+    if (currentTrack == null) {
+      await TrackPlayer.reset();
+      await TrackPlayer.add(arrayholder.title);
+      await TrackPlayer.add({
+        id: 'track',
+        url: arrayholder.title,
+        title: arraholder.title,
+        artist: arrayholder.artist.name,
+      });
+      await TrackPlayer.play();
+    }
   }
 
   showSortList = () => {
@@ -198,19 +230,33 @@ export default class Music extends Component<Props, State> {
                       <Text style={styles.artistText}>
                         {this.state.fetchedData[index].artist.name}
                       </Text>
-                      <View style={styles.rankAndDurationView}>
+                      {/* <View style={styles.rankAndDurationView}>
                         <Text style={styles.rankText}>
                           {this.state.fetchedData[index].rank}
                         </Text>
                         <Text style={styles.durationText}>
                           {this.state.fetchedData[index].duration}
                         </Text>
-                      </View>
+                      </View> */}
                     </View>
                   </View>
                 );
               }}
             />
+            <View style={styles.playerView}>
+              <Image
+                style={styles.playerImage}
+                source={this.state.fetchedData[1].album.cover}
+              />
+              <Text style={styles.playerTitleText}>
+                {this.state.fetchedData[1].title}
+              </Text>
+              <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() => this.togglePlayback()}>
+                <Image style={styles.playImage} source={images.play} />
+              </TouchableOpacity>
+            </View>
           </>
         )}
       </View>

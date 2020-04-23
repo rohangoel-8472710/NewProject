@@ -22,6 +22,7 @@ const images = {
   placeHolder: require('../assets/Images/icPicPlaceholder.png'),
   sideMenu: require('../assets/Images/icSideMenu.png'),
   chatBack: require('../assets/Images/icBackBtn.png'),
-  send:require('../assets/Images/icSend.png')
+  send:require('../assets/Images/icSend.png'),
+  play:require('../assets/Images/play.png')
 };
 export default images;

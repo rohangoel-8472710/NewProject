@@ -23,6 +23,7 @@ target 'NewProject' do
   pod 'React-Core/RCTWebSocket', :path => '../node_modules/react-native/'
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'RNShare', :path => '../node_modules/react-native-share'
+  
 
 
   pod 'React-cxxreact', :path => '../node_modules/react-native/ReactCommon/cxxreact'
