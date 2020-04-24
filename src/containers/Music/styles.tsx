@@ -105,28 +105,31 @@ const styles = StyleSheet.create({
     width: '100%',
     height: vw(90),
     top: vw(650),
-    flexDirection:'row',
-    alignItems:'center'
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   playerImage: {
     width: vw(60),
     height: vw(60),
     resizeMode: 'cover',
-    marginLeft:vw(20),
+    marginLeft: vw(20),
     // marginTop:vw(5)
   },
-  playImage: {
+  playerTitleText: {
+    fontSize: vw(18),
+    color: colors.white,
+    fontWeight: 'bold',
+    marginLeft: vw(20),
+    marginBottom: vw(20),
+  },
+  controlsView: {
+    flexDirection: 'row',
+    marginLeft: vw(40),
+  },
+  playerControlsImage: {
     width: vw(40),
     height: vw(40),
     resizeMode: 'cover',
-    marginLeft:vw(100)
   },
-  playerTitleText:{
-    fontSize:vw(18),
-    color:colors.white,
-    fontWeight:'bold',
-    marginLeft:vw(20),
-    marginBottom:vw(20)
-  }
 });
 export default styles;

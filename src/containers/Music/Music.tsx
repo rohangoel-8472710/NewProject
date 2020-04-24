@@ -31,7 +31,6 @@ export default class Music extends Component<Props, State> {
       showSort: false,
       text: '',
     };
-    let arrayholder = [];
   }
   componentDidMount() {
     axios
@@ -83,6 +82,18 @@ export default class Music extends Component<Props, State> {
       });
       await TrackPlayer.play();
     }
+  }
+
+  async skipToNext() {
+    try {
+      await TrackPlayer.skipToNext();
+    } catch (_) {}
+  }
+
+  async skipToPrevious() {
+    try {
+      await TrackPlayer.skipToPrevious();
+    } catch (_) {}
   }
 
   showSortList = () => {
@@ -248,14 +259,29 @@ export default class Music extends Component<Props, State> {
                 style={styles.playerImage}
                 source={this.state.fetchedData[1].album.cover}
               />
+                            
               <Text style={styles.playerTitleText}>
-                {this.state.fetchedData[1].title}
+                                {this.state.fetchedData[1].title}
+                              
               </Text>
-              <TouchableOpacity
-                activeOpacity={0.5}
-                onPress={() => this.togglePlayback()}>
-                <Image style={styles.playImage} source={images.play} />
-              </TouchableOpacity>
+              <View style={styles.controlsView}>
+                <Image
+                  style={styles.playerControlsImage}
+                  source={images.previous}
+                />
+                <TouchableOpacity
+                  activeOpacity={0.5}
+                  onPress={() => this.togglePlayback()}>
+                  <Image
+                    style={styles.playerControlsImage}
+                    source={images.play}
+                  />
+                </TouchableOpacity>
+                <Image
+                  style={styles.playerControlsImage}
+                  source={images.next}
+                />
+              </View>
             </View>
           </>
         )}
