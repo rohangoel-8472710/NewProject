@@ -21,6 +21,7 @@ interface State {
   fetchedData: any;
   showSort: boolean;
   text: any;
+  show: boolean;
 }
 
 export default class Music extends Component<Props, State> {
@@ -30,6 +31,7 @@ export default class Music extends Component<Props, State> {
       fetchedData: [],
       showSort: false,
       text: '',
+      show: false,
     };
   }
   componentDidMount() {
@@ -76,7 +78,7 @@ export default class Music extends Component<Props, State> {
       await TrackPlayer.add(arrayholder.title);
       await TrackPlayer.add({
         id: 'track',
-        url: arrayholder.title,
+        url: arrayholder.preview,
         title: arraholder.title,
         artist: arrayholder.artist.name,
       });
@@ -150,6 +152,9 @@ export default class Music extends Component<Props, State> {
       return b.rank - a.rank;
     });
     this.setState({fetchedData: sortData, showSort: false});
+  };
+  changeImage = () => {
+    this.setState({show: !this.state.show});
   };
 
   render() {
@@ -271,10 +276,10 @@ export default class Music extends Component<Props, State> {
                 />
                 <TouchableOpacity
                   activeOpacity={0.5}
-                  onPress={() => this.togglePlayback()}>
+                  onPress={() => this.changeImage()}>
                   <Image
                     style={styles.playerControlsImage}
-                    source={images.play}
+                    source={this.state.show ? images.pause : images.play}
                   />
                 </TouchableOpacity>
                 <Image
