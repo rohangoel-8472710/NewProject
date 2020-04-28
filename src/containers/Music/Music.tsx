@@ -14,7 +14,7 @@ import strings from '../../constants/strings';
 import colors from '../../constants/colors';
 import axios from 'axios';
 import {vw, vh} from '../../constants/dimensions';
-import TrackPlayer from 'react-native-track-player';
+import Sound from 'react-native-sound';
 console.disableYellowBox = true;
 interface Props {}
 interface State {
@@ -27,6 +27,7 @@ interface State {
 export default class Music extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    Sound.setCategory('Playback', true);
     this.state = {
       fetchedData: [],
       showSort: false,
@@ -54,50 +55,19 @@ export default class Music extends Component<Props, State> {
       .catch(err => {
         console.log(err);
       });
-    TrackPlayer.setupPlayer();
-    TrackPlayer.updateOptions({
-      stopWithApp: true,
-      capabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
-        TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-        TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-        TrackPlayer.CAPABILITY_STOP,
-      ],
-      compactCapabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
-      ],
-    });
   }
 
-  async togglePlayback() {
-    const currentTrack = await TrackPlayer.getCurrentTrack();
-    if (currentTrack == null) {
-      await TrackPlayer.reset();
-      await TrackPlayer.add(arrayholder.title);
-      await TrackPlayer.add({
-        id: 'track',
-        url: arrayholder.preview,
-        title: arraholder.title,
-        artist: arrayholder.artist.name,
+  playSong = () => {
+    var s1 = new Sound(arrayholder.item.preview, error => {
+      if (error) {
+        console.log('error' + error.message);
+        return;
+      }
+      s1.play(() => {
+        s1.release();
       });
-      await TrackPlayer.play();
-    }
-  }
-
-  async skipToNext() {
-    try {
-      await TrackPlayer.skipToNext();
-    } catch (_) {}
-  }
-
-  async skipToPrevious() {
-    try {
-      await TrackPlayer.skipToPrevious();
-    } catch (_) {}
-  }
-
+    });
+  };
   showSortList = () => {
     this.setState({showSort: !this.state.showSort});
   };
@@ -276,10 +246,10 @@ export default class Music extends Component<Props, State> {
                 />
                 <TouchableOpacity
                   activeOpacity={0.5}
-                  onPress={() => this.changeImage()}>
+                  onPress={() => this.playSong()}>
                   <Image
                     style={styles.playerControlsImage}
-                    source={this.state.show ? images.pause : images.play}
+                    source={images.play}
                   />
                 </TouchableOpacity>
                 <Image

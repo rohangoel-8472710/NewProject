@@ -48,6 +48,8 @@ target 'NewProject' do
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
 
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
   target 'NewProjectTests' do
     inherit! :search_paths
     # Pods for testing

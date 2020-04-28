@@ -24,9 +24,8 @@
 		6DA1B40754DAE5BB27F8D89F /* libPods-NewProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A574F0F63CED31423119E65 /* libPods-NewProject-tvOS.a */; };
 		6F55CAF005C1478EAB3A8EF9 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20F294319B1A4510A2EAC65E /* FontAwesome5_Solid.ttf */; };
 		7837F0F024864FE7AE4BEBD6 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18B4E73980F84F64B41A36E6 /* Fontisto.ttf */; };
+		84AEEACD245839BB00E8A442 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AEEACA2458395700E8A442 /* libRNSound.a */; };
 		84E3CBCB2435BED40061B740 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E3CBCA2435BED40061B740 /* GoogleService-Info.plist */; };
-		84E693D32456EED400196B3A /* libRNTrackPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E693D22456EE7800196B3A /* libRNTrackPlayer.a */; };
-		84E693DE2457002B00196B3A /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E693DD2457002B00196B3A /* dummy.swift */; };
 		955E09A625AF48EAACD7AC7E /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 773B2E87E4D54EDD9BA56F61 /* AntDesign.ttf */; };
 		96198D3B4DE140FBBAF574D5 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6B1D215B99A45E2880B4247 /* Zocial.ttf */; };
 		A0114BAF976444DF80FE2118 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D309BF056E364DE1936C5739 /* FontAwesome5_Regular.ttf */; };
@@ -56,12 +55,12 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "NewProject-tvOS";
 		};
-		84E693D12456EE7800196B3A /* PBXContainerItemProxy */ = {
+		84AEEAC92458395700E8A442 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 84E693CD2456EE7800196B3A /* RNTrackPlayer.xcodeproj */;
+			containerPortal = 84AEEAC52458395700E8A442 /* RNSound.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 9B0E28291F07D76F00B71D2A;
-			remoteInfo = RNTrackPlayer;
+			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
+			remoteInfo = RNSound;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -94,10 +93,9 @@
 		62D1C4A66F11BC7C1EDAABBF /* Pods-NewProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewProject.debug.xcconfig"; path = "Target Support Files/Pods-NewProject/Pods-NewProject.debug.xcconfig"; sourceTree = "<group>"; };
 		773B2E87E4D54EDD9BA56F61 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		7C9FE7A9C70A4A0F96F04F9B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		84AEEAC52458395700E8A442 /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
+		84AEEACB2458398200E8A442 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSound.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E3CBCA2435BED40061B740 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		84E693CD2456EE7800196B3A /* RNTrackPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNTrackPlayer.xcodeproj; path = "../node_modules/react-native-track-player/ios/RNTrackPlayer.xcodeproj"; sourceTree = "<group>"; };
-		84E693DC2457002B00196B3A /* NewProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewProject-Bridging-Header.h"; sourceTree = "<group>"; };
-		84E693DD2457002B00196B3A /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
 		8537702E7E80B1580C96EFDA /* Pods-NewProject-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewProject-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-NewProject-tvOSTests/Pods-NewProject-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		932FCE516211D52BE0993C15 /* Pods-NewProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-NewProjectTests/Pods-NewProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A4D7259B95C4AFF97E67D39 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
@@ -128,8 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AEEACD245839BB00E8A442 /* libRNSound.a in Frameworks */,
 				696FFA96F44AA864CC12F5F9 /* libPods-NewProject.a in Frameworks */,
-				84E693D32456EED400196B3A /* libRNTrackPlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,8 +201,6 @@
 				84E3CBCA2435BED40061B740 /* GoogleService-Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				84E693DD2457002B00196B3A /* dummy.swift */,
-				84E693DC2457002B00196B3A /* NewProject-Bridging-Header.h */,
 			);
 			name = NewProject;
 			sourceTree = "<group>";
@@ -212,6 +208,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84AEEACB2458398200E8A442 /* libRNSound.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				38BA4AE01C8D2EBD84796595 /* libPods-NewProject.a */,
@@ -225,7 +222,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				84E693CD2456EE7800196B3A /* RNTrackPlayer.xcodeproj */,
+				84AEEAC52458395700E8A442 /* RNSound.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -257,10 +254,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84E693CE2456EE7800196B3A /* Products */ = {
+		84AEEAC62458395700E8A442 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84E693D22456EE7800196B3A /* libRNTrackPlayer.a */,
+				84AEEACA2458395700E8A442 /* libRNSound.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -403,8 +400,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 84E693CE2456EE7800196B3A /* Products */;
-					ProjectRef = 84E693CD2456EE7800196B3A /* RNTrackPlayer.xcodeproj */;
+					ProductGroup = 84AEEAC62458395700E8A442 /* Products */;
+					ProjectRef = 84AEEAC52458395700E8A442 /* RNSound.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -418,11 +415,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		84E693D22456EE7800196B3A /* libRNTrackPlayer.a */ = {
+		84AEEACA2458395700E8A442 /* libRNSound.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libRNTrackPlayer.a;
-			remoteRef = 84E693D12456EE7800196B3A /* PBXContainerItemProxy */;
+			path = libRNSound.a;
+			remoteRef = 84AEEAC92458395700E8A442 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -705,7 +702,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				84E693DE2457002B00196B3A /* dummy.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -759,7 +755,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 932FCE516211D52BE0993C15 /* Pods-NewProjectTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -783,7 +778,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C65115D7FAA6C9113C13ABE /* Pods-NewProjectTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = NewProjectTests/Info.plist;
