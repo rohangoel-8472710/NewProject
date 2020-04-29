@@ -32,6 +32,7 @@ const strings = {
   Mobile: 'Mobile Number',
   search: 'Search',
   Audrix: 'Audrix',
+  faq: 'FAQ',
 };
 
 export default strings;

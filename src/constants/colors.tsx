@@ -24,10 +24,11 @@ const colors = {
   day: 'rgb(214, 231, 230)',
   greyishBrown: 'rgb(89, 89, 89)',
   socialColor: '#25A6E9',
-  purple:'#7a42f4',
-  inputContainer:'#fff',
-  inputContainerBorder:'#000',
-  listBorder:'#aaaaaa'
+  purple: '#7a42f4',
+  inputContainer: '#fff',
+  inputContainerBorder: '#000',
+  listBorder: '#aaaaaa',
+  lightorange: 'rgb(255,240,217)',
 };
 
 export default colors;

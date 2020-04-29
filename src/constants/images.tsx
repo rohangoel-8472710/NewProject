@@ -27,5 +27,6 @@ const images = {
   next: require('../assets/Images/next.png'),
   pause: require('../assets/Images/pause.png'),
   previous: require('../assets/Images/previous.png'),
+  plus: require('../assets/Images/icOpenQues.png'),
 };
 export default images;

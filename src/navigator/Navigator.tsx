@@ -24,6 +24,7 @@ import MainList from '../containers/TodoList/mainList';
 import TodoList from '../containers/TodoList/TodoList';
 import NewList from '../containers/NewList/NewList';
 import Music from '../containers/Music/Music';
+import Faq from '../containers/FAQ/Faq';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {vw, vh} from '../constants/dimensions';
 import images from '../constants/images';
@@ -39,9 +40,10 @@ function TabBar() {
       <Tab.Screen name={'Home'} component={Home} />
       <Tab.Screen name={'Maps'} component={Maps} />
       <Tab.Screen name={'Edit'} component={Edit} />
-      <Tab.Screen name={'Messages'} component={Chatlist} />
+      {/* <Tab.Screen name={'Messages'} component={Chatlist} /> */}
       <Tab.Screen name={'Activities'} component={NewList} />
       <Tab.Screen name={'Music'} component={Music} />
+      <Tab.Screen name={'Faq'} component={Faq} />
     </Tab.Navigator>
   );
 }

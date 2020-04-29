@@ -244,9 +244,7 @@ export default class Music extends Component<Props, State> {
                   style={styles.playerControlsImage}
                   source={images.previous}
                 />
-                <TouchableOpacity
-                  activeOpacity={0.5}
-                  onPress={() => this.playSong()}>
+                <TouchableOpacity activeOpacity={0.5}>
                   <Image
                     style={styles.playerControlsImage}
                     source={images.play}
