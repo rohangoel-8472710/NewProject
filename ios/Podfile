@@ -23,6 +23,7 @@ target 'NewProject' do
   pod 'React-Core/RCTWebSocket', :path => '../node_modules/react-native/'
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'RNShare', :path => '../node_modules/react-native-share'
+  pod 'React', :path => '../node_modules/react-native/', :modular_headers => true
   
 
 
@@ -49,6 +50,8 @@ target 'NewProject' do
   pod 'Google-Maps-iOS-Utils'
 
   pod 'RNSound', :path => '../node_modules/react-native-sound'
+  pod 'react-native-track-player', :path => '../node_modules/react-native-track-player'
+  # pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
 
   target 'NewProjectTests' do
     inherit! :search_paths
