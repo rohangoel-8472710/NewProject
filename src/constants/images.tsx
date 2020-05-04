@@ -28,5 +28,15 @@ const images = {
   pause: require('../assets/Images/pause.png'),
   previous: require('../assets/Images/previous.png'),
   plus: require('../assets/Images/icOpenQues.png'),
+  firstImg: require('../assets/Images/1.jpg'),
+  secondImg: require('../assets/Images/2.jpg'),
+  thirdImg: require('../assets/Images/3.jpg'),
+  fourthImg: require('../assets/Images/4.jpg'),
+  fifthImg: require('../assets/Images/5.jpg'),
+  sixthImg: require('../assets/Images/6.jpg'),
+  seventhImg: require('../assets/Images/7.jpg'),
+  eigthImg: require('../assets/Images/8.jpg'),
+  ninthImg: require('../assets/Images/9.jpeg'),
+  tenthImg: require('../assets/Images/10.jpg'),
 };
 export default images;

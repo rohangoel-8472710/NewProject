@@ -33,6 +33,7 @@ const strings = {
   search: 'Search',
   Audrix: 'Audrix',
   faq: 'FAQ',
+  card:"Card"
 };
 
 export default strings;

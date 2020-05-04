@@ -14,8 +14,8 @@ import strings from '../../constants/strings';
 import colors from '../../constants/colors';
 import axios from 'axios';
 import {vw, vh} from '../../constants/dimensions';
-import TrackPlayer from 'react-native-track-player';
-console.disableYellowBox = true;
+// import TrackPlayer from 'react-native-track-player';
+// console.disableYellowBox = true;
 interface Props {}
 interface State {
   fetchedData: any;
@@ -54,21 +54,21 @@ export default class Music extends Component<Props, State> {
       .catch(err => {
         console.log(err);
       });
-    TrackPlayer.setupPlayer();
-    TrackPlayer.updateOptions({
-      stopWithApp: true,
-      capabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
-        TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-        TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-        TrackPlayer.CAPABILITY_STOP,
-      ],
-      compactCapabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
-      ],
-    });
+    // TrackPlayer.setupPlayer();
+    // TrackPlayer.updateOptions({
+    //   stopWithApp: true,
+    //   capabilities: [
+    //     TrackPlayer.CAPABILITY_PLAY,
+    //     TrackPlayer.CAPABILITY_PAUSE,
+    //     TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+    //     TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+    //     TrackPlayer.CAPABILITY_STOP,
+    //   ],
+    //   compactCapabilities: [
+    //     TrackPlayer.CAPABILITY_PLAY,
+    //     TrackPlayer.CAPABILITY_PAUSE,
+    //   ],
+    // });
   }
   showSortList = () => {
     this.setState({showSort: !this.state.showSort});
