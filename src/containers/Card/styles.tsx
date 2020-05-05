@@ -1,6 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import colors from '../../constants/colors';
 import {vw, vh} from '../../constants/dimensions';
+const {height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
@@ -22,13 +23,34 @@ const styles = StyleSheet.create({
     color: colors.textInput,
     marginLeft: vw(140),
   },
-  imageStyle: {
-    height: vh(400),
-    width: vw(300),
-    resizeMode: 'cover',
-    borderRadius: vw(20),
-    alignSelf: 'center',
-    marginTop: vw(60),
+  // imageStyle: {
+  //   height: vh(400),
+  //   width: vw(300),
+  //   resizeMode: 'cover',
+  //   borderRadius: vw(20),
+  //   alignSelf: 'center',
+  //   marginTop: vw(60),
+  // },
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  swipeContainer: {
+    height: height - 240,
+  },
+  labelWrapper: {
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-start',
+    marginTop: vw(30),
+    marginLeft: vw(-30),
+  },
+  buttonContainer: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: '15%',
+    backgroundColor:colors.white,
   },
 });
 
