@@ -55,7 +55,7 @@ const CardList = () => {
             }}
           />
         </View>
-        {/* <View style={styles.buttonContainer}>
+        <View style={styles.buttonContainer}>
           <IconButton
             name="close"
             onPress={handleOnSwipeLeft}
@@ -74,7 +74,7 @@ const CardList = () => {
             color="white"
             backgroundColor="#4CCC93"
           />
-        </View> */}
+        </View>
       </View>
     </>
   );
