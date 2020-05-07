@@ -8,7 +8,7 @@ import strings from '../../constants/strings';
 import styles from './styles';
 
 const CardList = () => {
-  const useSwiper = useRef(null).current
+  const useSwiper = useRef(null).current;
 
   const handleOnSwipeLeft = () => useSwiper.swipeLeft();
   const handleOnSwipeTop = () => useSwiper.swipeTop();
@@ -16,12 +16,18 @@ const CardList = () => {
 
   return (
     <>
+            
       <SafeAreaView style={styles.header}>
+                
         <Image style={styles.imageLines} source={images.threelines} />
-        <Text style={styles.headerText}>{strings.card}</Text>
+                <Text style={styles.headerText}>{strings.card}</Text>
+              
       </SafeAreaView>
+            
       <View styles={styles.container}>
+                
         <View style={styles.swipeContainer}>
+                    
           <Swiper
             ref={useSwiper}
             cards={photoCards}
@@ -54,28 +60,36 @@ const CardList = () => {
               },
             }}
           />
+                  
         </View>
+                
         <View style={styles.buttonContainer}>
+                    
           <IconButton
             name="close"
             onPress={handleOnSwipeLeft}
             color="white"
             backgroundColor="#E5566D"
           />
+                    
           <IconButton
             name="star"
             onPress={handleOnSwipeTop}
             color="white"
             backgroundColor="#3CA3FF"
           />
+                    
           <IconButton
             name="heart"
             onPress={handleOnSwipeRight}
             color="white"
             backgroundColor="#4CCC93"
           />
+                  
         </View>
+              
       </View>
+          
     </>
   );
 };

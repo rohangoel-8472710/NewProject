@@ -19,8 +19,6 @@
 		3A9EBA997C4BF06788374B4E /* libPods-NewProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4009B53C0BD9DE60AA4B4F5 /* libPods-NewProjectTests.a */; };
 		696FFA96F44AA864CC12F5F9 /* libPods-NewProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BA4AE01C8D2EBD84796595 /* libPods-NewProject.a */; };
 		6DA1B40754DAE5BB27F8D89F /* libPods-NewProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A574F0F63CED31423119E65 /* libPods-NewProject-tvOS.a */; };
-		8430B7B42462C95D00601DFD /* libRNTrackPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8430B7B32462C92D00601DFD /* libRNTrackPlayer.a */; };
-		8430B7B72462C9F400601DFD /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430B7B62462C9F400601DFD /* dummy.swift */; };
 		84E3CBCB2435BED40061B740 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E3CBCA2435BED40061B740 /* GoogleService-Info.plist */; };
 		DB186B6A42851AE0486CC6CB /* libPods-NewProject-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB2E13F963D7873CFCCBAFE /* libPods-NewProject-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -39,13 +37,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "NewProject-tvOS";
-		};
-		8430B7B22462C92D00601DFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8430B7AE2462C92D00601DFD /* RNTrackPlayer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9B0E28291F07D76F00B71D2A;
-			remoteInfo = RNTrackPlayer;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -78,9 +69,6 @@
 		62D1C4A66F11BC7C1EDAABBF /* Pods-NewProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewProject.debug.xcconfig"; path = "Target Support Files/Pods-NewProject/Pods-NewProject.debug.xcconfig"; sourceTree = "<group>"; };
 		773B2E87E4D54EDD9BA56F61 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		7C9FE7A9C70A4A0F96F04F9B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		8430B7AE2462C92D00601DFD /* RNTrackPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNTrackPlayer.xcodeproj; path = "../node_modules/react-native-track-player/ios/RNTrackPlayer.xcodeproj"; sourceTree = "<group>"; };
-		8430B7B52462C9F400601DFD /* NewProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewProject-Bridging-Header.h"; sourceTree = "<group>"; };
-		8430B7B62462C9F400601DFD /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
 		84AEEACB2458398200E8A442 /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSound.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E3CBCA2435BED40061B740 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8537702E7E80B1580C96EFDA /* Pods-NewProject-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewProject-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-NewProject-tvOSTests/Pods-NewProject-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8430B7B42462C95D00601DFD /* libRNTrackPlayer.a in Frameworks */,
 				696FFA96F44AA864CC12F5F9 /* libPods-NewProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,8 +175,6 @@
 				84E3CBCA2435BED40061B740 /* GoogleService-Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				8430B7B62462C9F400601DFD /* dummy.swift */,
-				8430B7B52462C9F400601DFD /* NewProject-Bridging-Header.h */,
 			);
 			name = NewProject;
 			sourceTree = "<group>";
@@ -211,7 +196,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				8430B7AE2462C92D00601DFD /* RNTrackPlayer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -239,14 +223,6 @@
 				00E356EE1AD99517003FC87E /* NewProjectTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* NewProject-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* NewProject-tvOSTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8430B7AF2462C92D00601DFD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8430B7B32462C92D00601DFD /* libRNTrackPlayer.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -387,12 +363,6 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 8430B7AF2462C92D00601DFD /* Products */;
-					ProjectRef = 8430B7AE2462C92D00601DFD /* RNTrackPlayer.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* NewProject */,
@@ -402,16 +372,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		8430B7B32462C92D00601DFD /* libRNTrackPlayer.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNTrackPlayer.a;
-			remoteRef = 8430B7B22462C92D00601DFD /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -675,7 +635,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				8430B7B72462C9F400601DFD /* dummy.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -729,7 +688,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 932FCE516211D52BE0993C15 /* Pods-NewProjectTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -753,7 +711,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C65115D7FAA6C9113C13ABE /* Pods-NewProjectTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = NewProjectTests/Info.plist;
@@ -780,6 +737,70 @@
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = NewProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBReactNativeSpec\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKCoreKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKLoginKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKShareKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseDatabase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Folly\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Google-Maps-iOS-Utils\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransportCCTSupport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RCTTypeSafety\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCMaskedView\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNFirebase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNGestureHandler\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNReanimated\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNScreens\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNShare\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNSound\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNVectorIcons\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RSKImageCropper\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-Core\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-CoreModules\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTActionSheet\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTAnimation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTBlob\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTLinking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTNetwork\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTSettings\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTText\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTVibration\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsi\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsiexecutor\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsinspector\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Yoga\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/glog\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/lottie-ios\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/lottie-react-native\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-fbsdk\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-geolocation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-google-maps\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-maps\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-safe-area-context\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-splash-screen\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-track-player\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-video\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-webview\"",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -803,6 +824,70 @@
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = NewProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBReactNativeSpec\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKCoreKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKLoginKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKShareKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseDatabase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Folly\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Google-Maps-iOS-Utils\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransportCCTSupport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RCTTypeSafety\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCMaskedView\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNFirebase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNGestureHandler\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNReanimated\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNScreens\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNShare\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNSound\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNVectorIcons\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RSKImageCropper\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-Core\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-CoreModules\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTActionSheet\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTAnimation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTBlob\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTLinking\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTNetwork\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTSettings\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTText\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-RCTVibration\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsi\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsiexecutor\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/React-jsinspector\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Yoga\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/glog\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/lottie-ios\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/lottie-react-native\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-fbsdk\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-geolocation\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-google-maps\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-maps\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-safe-area-context\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-splash-screen\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-track-player\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-video\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-webview\"",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
