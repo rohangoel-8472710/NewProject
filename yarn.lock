@@ -4595,7 +4595,7 @@ jest@^25.1.0:
     import-local "^3.0.2"
     jest-cli "^25.1.0"
 
-jetifier@^1.6.2:
+jetifier@^1.6.2, jetifier@^1.6.5:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.5.tgz#ea87324a4230bef20a9651178ecab978ee54a8cb"
   integrity sha512-T7yzBSu9PR+DqjYt+I0KVO1XTb1QhAfHnXV5Nd3xpbXM6Xg4e3vP60Q4qkNU8Fh6PHC2PivPUNN3rY7G2MxcDQ==
@@ -6381,6 +6381,11 @@ react-native-share@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/react-native-share/-/react-native-share-3.1.2.tgz#124a175b4088fa8993b842ac357620a8b100aa6c"
   integrity sha512-BWcIQ5u/8tDUrfCHye/cZ4cDtkSjPql/LqxFAffCgVV97Po4t8i061e2XHHgqCVp6IDNj1AiS331BW6i0jogag==
+
+react-native-sound@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/react-native-sound/-/react-native-sound-0.11.0.tgz#ad60b55ba8c6dc89917f381ad3713f2738de530f"
+  integrity sha512-4bGAZfni6E2L695NQjOZwNLBQGXgBGYC4Sy+h99K5h0HqNZjCqR0+aLel+ezASxEJDpaH83gylNObXpiqJgdwg==
 
 react-native-splash-screen@^3.2.0:
   version "3.2.0"
