@@ -4,6 +4,14 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
+import com.reactnativecommunity.geolocation.GeolocationPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.database.RNFirebaseDatabasePackage;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import com.swmansion.reanimated.ReanimatedPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.facebook.react.ReactNativeHost;
@@ -27,6 +35,14 @@ public class MainApplication extends Application implements ReactApplication {
       @SuppressWarnings("UnnecessaryLocalVariable")
       List<ReactPackage> packages = new PackageList(this).getPackages();
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new SplashScreenReactPackage(),
+            new SafeAreaContextPackage(),
+            new GeolocationPackage(),
+            new RNFirebasePackage(),
+            new ReanimatedPackage(),
+            new RNGestureHandlerPackage(),
+            new RNFirebaseDatabasePackage(),
+            new RNFirebaseAuthPackage(),
             new LottiePackage(), new RNSoundPackage());
       // Packages that cannot be autolinked yet can be added manually here, for
       // example:

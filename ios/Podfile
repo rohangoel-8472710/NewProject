@@ -56,6 +56,18 @@ target 'NewProject' do
   pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
   # pod 'lottie-ios'
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
+
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'NewProjectTests' do
     inherit! :search_paths
     # Pods for testing

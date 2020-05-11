@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: vw(21),
-    textAlign: 'center',
+    // textAlign: 'center',
     color: colors.textInput,
     marginLeft: vw(120),
   },
