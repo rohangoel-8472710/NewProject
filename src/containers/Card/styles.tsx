@@ -2,6 +2,7 @@ import {StyleSheet, Dimensions} from 'react-native';
 import colors from '../../constants/colors';
 import {vw, vh} from '../../constants/dimensions';
 const {height} = Dimensions.get('window');
+const SCREEN_WIDTH = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
@@ -50,7 +51,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: '15%',
-    backgroundColor:colors.white,
+    backgroundColor: colors.white,
+  },
+  cardStyle: {
+    position: 'absolute',
+    width: SCREEN_WIDTH,
+  },
+  titleTextStyle: {
+    fontSize: vw(14),
+  },
+  imageView: {
+    height: vw(200),
+  },
+  cardImage: {
+    height: vw(200),
+    width: '100%',
+  },
+  detailsView: {
+    marginTop: vw(10),
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: vw(10),
+  },
+  statusView: {
+    padding: vw(15),
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: vw(10),
+  },
+  rejectedText: {
+    color: colors.red,
+    fontSize: vw(15),
+  },
+  likedText: {
+    color: colors.fbBlue,
+    fontSize: vw(15),
+  },
+  cardContainer: {
+    flex: 1,
   },
 });
 

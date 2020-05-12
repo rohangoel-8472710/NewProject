@@ -38,5 +38,6 @@ const images = {
   eigthImg: require('../assets/Images/8.jpg'),
   ninthImg: require('../assets/Images/9.jpeg'),
   tenthImg: require('../assets/Images/10.jpg'),
+  cardImage: require('../assets/Images/image.jpg'),
 };
 export default images;
