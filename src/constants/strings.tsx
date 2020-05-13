@@ -33,7 +33,10 @@ const strings = {
   search: 'Search',
   Audrix: 'Audrix',
   faq: 'FAQ',
-  card:"Card"
+  card: 'Card',
+  feedbackHeading: 'Please rate your feedback',
+  thoughtsHeading: 'Do let us know your thoughts.',
+  mattersHeading: 'Your feedback matters!',
 };
 
 export default strings;

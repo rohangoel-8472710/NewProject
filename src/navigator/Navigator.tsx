@@ -27,6 +27,7 @@ import Music from '../containers/Music/Music';
 import Faq from '../containers/FAQ/Faq';
 import CardList from '../containers/Card/CardList';
 import Heart from '../containers/Animation/Heart';
+import Rating from '../containers/Rating/Rating';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {vw, vh} from '../constants/dimensions';
 import images from '../constants/images';
@@ -48,6 +49,7 @@ function TabBar() {
       <Tab.Screen name={'Faq'} component={Faq} />
       <Tab.Screen name={'Card'} component={CardList} />
       <Tab.Screen name={'Heart'} component={Heart} />
+      <Tab.Screen name={'Rating'} component={Rating} />
     </Tab.Navigator>
   );
 }

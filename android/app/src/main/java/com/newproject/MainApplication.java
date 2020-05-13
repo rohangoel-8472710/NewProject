@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.horcrux.svg.SvgPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.reactnativecommunity.geolocation.GeolocationPackage;
@@ -35,6 +37,8 @@ public class MainApplication extends Application implements ReactApplication {
       @SuppressWarnings("UnnecessaryLocalVariable")
       List<ReactPackage> packages = new PackageList(this).getPackages();
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new LinearGradientPackage(),
+            new SvgPackage(),
             new SplashScreenReactPackage(),
             new SafeAreaContextPackage(),
             new GeolocationPackage(),

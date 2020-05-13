@@ -29,6 +29,7 @@ const colors = {
   inputContainerBorder: '#000',
   listBorder: '#aaaaaa',
   lightorange: 'rgb(255,240,217)',
+  feebackColor: 'rgba(0, 0, 0, 0.05)',
 };
 
 export default colors;

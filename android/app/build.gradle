@@ -181,6 +181,8 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-linear-gradient')
+    implementation project(':react-native-svg')
     implementation project(':react-native-splash-screen')
     implementation project(':react-native-safe-area-context')
     implementation project(':@react-native-community_geolocation')
