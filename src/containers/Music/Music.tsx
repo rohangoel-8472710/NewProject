@@ -48,7 +48,7 @@ export default class Music extends Component<Props, State> {
       .then(response => {
         console.log(response.data);
         this.setState({fetchedData: response.data.data}, () => {
-          const arrayholder = response.data.data;
+          arrayholder = response.data.data;
         });
       })
       .catch(err => {

@@ -32,7 +32,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        'https://newsapi.org/v2/everything?q=noida&apiKey=d410fd5a834048f99d32f44b11f12239',
+        'https://newsapi.org/v2/everything?q=noida&apiKey=cfca9b3fc03b4ad8bd1f587bde1ab67f',
       )
       .then(response => {
         // console.log(response.data);

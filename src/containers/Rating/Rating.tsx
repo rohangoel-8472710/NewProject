@@ -89,7 +89,7 @@ export default class Rating extends Component {
                 <TouchableOpacity
                   key={type}
                   onPress={() => this.changePaths(type, index)}
-                  activeOpacity={0.7}>
+                  activeOpacity={0.5}>
                   <Icon
                     name={this.state.index >= index ? 'star' : 'staro'}
                     size={30}

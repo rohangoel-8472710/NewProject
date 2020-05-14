@@ -19,11 +19,6 @@ interface State {
 }
 
 export default class Swipe extends Component<Props, State> {
-  static defaultProps = {
-    onSwipeRight: () => {},
-    onSwipeLeft: () => {},
-    keyProp: 'id',
-  };
   _panResponder: any;
   x: any;
   constructor(props: Props) {
@@ -32,12 +27,12 @@ export default class Swipe extends Component<Props, State> {
 
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: (evt, gesture) => {
+      onPanResponderMove: (e, gesture) => {
         //dx - accumulated distance of the gesture since the touch started
         //dy - accumulated distance of the gesture since the touch started
         position.setValue({x: gesture.dx, y: gesture.dy});
       },
-      onPanResponderRelease: (evt, gesture) => {
+      onPanResponderRelease: (e, gesture) => {
         if (gesture.dx > SWIPE_THRESHOLD) {
           this.forceSwipe('right');
         } else if (gesture.dx < -SWIPE_THRESHOLD) {
@@ -110,7 +105,11 @@ export default class Swipe extends Component<Props, State> {
         </Animated.View>
       );
     });
-    return Platform.OS === 'android' ? cards : cards.reverse();
+    if (Platform.OS === 'android') {
+      return cards;
+    } else {
+      return cards.reverse();
+    }
   };
   render() {
     return <View>{this.renderCards()}</View>;

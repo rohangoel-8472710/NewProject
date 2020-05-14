@@ -51,10 +51,10 @@ export default class NewList extends Component<Props, State> {
   };
   returnItem = (item: any) => {
     let arr = this.state.newData;
-    let index1 = arr.indexOf(item.value);
+    let index1 = arr.indexOf(item);
     arr.splice(index1, 1);
     this.setState({newData: arr});
-    this.state.DATA.push(item.value);
+    this.state.DATA.push(item);
   };
   render() {
     return (
@@ -81,9 +81,11 @@ export default class NewList extends Component<Props, State> {
           renderItem={({item}) => {
             return (
               <View style={styles.horizontalFlatList}>
-                <Text style={styles.horizontalText}>{item}</Text>
+                <Text style={styles.horizontalText}>{item.value}</Text>
                 <View style={styles.circleView}>
-                  <TouchableOpacity onPress={() => this.returnItem(item)}>
+                  <TouchableOpacity
+                    onPress={() => this.returnItem(item)}
+                    activeOpacity={0.7}>
                     <Icon2
                       name="cross"
                       color={colors.chatGreen}
@@ -106,7 +108,9 @@ export default class NewList extends Component<Props, State> {
             return (
               <View style={styles.flatListView}>
                 <Text style={styles.listText}>{item.value}</Text>
-                <TouchableOpacity onPress={() => this.getItem(item)}>
+                <TouchableOpacity
+                  onPress={() => this.getItem(item)}
+                  activeOpacity={0.7}>
                   <Icon
                     name="pluscircleo"
                     color={colors.chatGreen}

@@ -72,6 +72,8 @@ target 'NewProject' do
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
   target 'NewProjectTests' do
     inherit! :search_paths
     # Pods for testing

@@ -7,6 +7,7 @@ import {
   Image,
   Alert,
   TextInput,
+  ScrollView,
 } from 'react-native';
 import images from '../../constants/images';
 import styles from './styles';
@@ -81,10 +82,11 @@ class Login extends Component<Props, State> {
       <ImageBackground
         style={styles.imageStyle}
         source={images.emailloginimage}>
-        <View style={styles.container}>
-          <Text style={styles.heading}>{strings.newProject}</Text>
-          <Text style={styles.subHeading}>{strings.splashText}</Text>
-          {/* <CustomInput
+        <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
+          <View style={styles.container}>
+            <Text style={styles.heading}>{strings.newProject}</Text>
+            <Text style={styles.subHeading}>{strings.splashText}</Text>
+            {/* <CustomInput
             style={[
               styles.textInputEmail,
               {
@@ -128,71 +130,73 @@ class Login extends Component<Props, State> {
             onBlur={''}
             onFocus={''}
           /> */}
-          <TextInput
-            style={styles.textInputEmail}
-            placeholder={strings.emailPlaceholder}
-            placeholderTextColor={colors.warmGrey50}
-            returnKeyType="next"
-            onChangeText={(text: string) => this.setState({email: text})}
-            autoCorrect={false}
-            keyboardType="email-address"
-            onSubmitEditing={() => {
-              this.firstInput.focus();
-            }}
-            autoCapitalize="none"
-          />
-          <TextInput
-            style={styles.textInputPassword}
-            placeholder={strings.password}
-            placeholderTextColor={colors.warmGrey50}
-            secureTextEntry={true}
-            onChangeText={(text: string) => this.setState({password: text})}
-            returnKeyType="done"
-            keyboardType="default"
-            onSubmitEditing={() =>
-              this.login(this.state.email, this.state.password)
-            }
-            ref={ref => {
-              this.firstInput = ref;
-            }}
-          />
-          {/* <CustomLoginButton
+            <TextInput
+              style={styles.textInputEmail}
+              placeholder={strings.emailPlaceholder}
+              placeholderTextColor={colors.warmGrey50}
+              returnKeyType="next"
+              onChangeText={(text: string) => this.setState({email: text})}
+              autoCorrect={false}
+              keyboardType="email-address"
+              onSubmitEditing={() => {
+                this.firstInput.focus();
+              }}
+              autoCapitalize="none"
+            />
+            <TextInput
+              style={styles.textInputPassword}
+              placeholder={strings.password}
+              placeholderTextColor={colors.warmGrey50}
+              secureTextEntry={true}
+              onChangeText={(text: string) => this.setState({password: text})}
+              returnKeyType="done"
+              keyboardType="default"
+              onSubmitEditing={() =>
+                this.login(this.state.email, this.state.password)
+              }
+              ref={ref => {
+                this.firstInput = ref;
+              }}
+            />
+            {/* <CustomLoginButton
             styleButton={styles.signINButton}
             title={strings.signIn}
             // onPress={this.login(this.state.email, this.state.password)}
           /> */}
-          <TouchableOpacity
-            style={styles.signINButton}
-            onPress={() => this.login(this.state.email, this.state.password)}>
-            <Text style={styles.signInText}>SIGN IN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Forgot')}>
-            <Text style={styles.forgetPasswordText}>
-              {strings.forgotPassword}
+            <TouchableOpacity
+              style={styles.signINButton}
+              onPress={() => this.login(this.state.email, this.state.password)}
+              activeOpacity={0.7}>
+              <Text style={styles.signInText}>SIGN IN</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('Forgot')}>
+              <Text style={styles.forgetPasswordText}>
+                {strings.forgotPassword}
+              </Text>
+            </TouchableOpacity>
+            <Text style={styles.orSignInText}>{strings.orSign}</Text>
+            <View style={styles.buttonView}>
+              <TouchableOpacity style={styles.fbButton}>
+                <Image style={styles.fbImage} source={images.fb} />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.linkedInButton}>
+                <Image style={styles.linkedInImage} source={images.linkedin} />
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.dontHaveText}>
+              Don't have an account?
+              <Text
+                style={styles.SignUpText}
+                onPress={() => {
+                  this.props.navigation.navigate('SignUp');
+                }}>
+                {' '}
+                SIGN UP
+              </Text>
             </Text>
-          </TouchableOpacity>
-          <Text style={styles.orSignInText}>{strings.orSign}</Text>
-          <View style={styles.buttonView}>
-            <TouchableOpacity style={styles.fbButton}>
-              <Image style={styles.fbImage} source={images.fb} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.linkedInButton}>
-              <Image style={styles.linkedInImage} source={images.linkedin} />
-            </TouchableOpacity>
           </View>
-          <Text style={styles.dontHaveText}>
-            Don't have an account?
-            <Text
-              style={styles.SignUpText}
-              onPress={() => {
-                this.props.navigation.navigate('SignUp');
-              }}>
-              {' '}
-              SIGN UP
-            </Text>
-          </Text>
-        </View>
+        </ScrollView>
       </ImageBackground>
     );
   }

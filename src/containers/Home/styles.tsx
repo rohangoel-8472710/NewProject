@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.waterBlue,
     justifyContent: 'space-between',
+    alignItems:'center',
     width: vw(375),
     height: vh(73),
   },
@@ -14,12 +15,12 @@ const styles = StyleSheet.create({
     height: vh(16),
     marginLeft: vw(12),
     resizeMode: 'contain',
-    marginTop: vw(5),
   },
   headerText: {
     fontSize: vw(21),
-    textAlign: 'left',
+    textAlign:'center',
     color: colors.textInput,
+    marginBottom:vw(5)
   },
   searchImage: {
     width: vw(19),
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
     fontSize: vw(17),
     color: colors.textInput,
     marginRight: vw(13),
-    marginTop: vw(5),
+    marginBottom:vw(5)
   },
   checkBox: {
     height: vw(20),

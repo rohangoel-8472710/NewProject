@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: vw(14),
     color: colors.darkBlack,
-    marginVertical: vw(89),
+    marginVertical: vw(70),
   },
   buttonView: {
     flexDirection: 'row',

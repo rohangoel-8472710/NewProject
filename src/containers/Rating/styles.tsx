@@ -43,7 +43,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     height: vw(60),
-    width: width
+    width: width,
+    backgroundColor:colors.feebackColor,
+    marginBottom:vw(40)
   },
 });
 export default styles;
