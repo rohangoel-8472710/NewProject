@@ -17,13 +17,12 @@ const styles = StyleSheet.create({
     width: vw(17),
     height: vw(17),
     marginLeft: vw(12),
-    marginTop: vw(36),
+    alignSelf:'center',
   },
   verificationText: {
     fontSize: vw(17),
-    textAlign: 'left',
+    textAlign: 'center',
     color: colors.textInput,
-    marginTop: vw(36),
     marginLeft: vw(88),
   },
   verificationDesc: {

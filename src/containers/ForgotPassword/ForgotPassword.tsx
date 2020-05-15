@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View, Text, TouchableOpacity, Image, SafeAreaView} from 'react-native';
 import images from '../../constants/images';
 import styles from './styles';
 import strings from '../../constants/strings';
@@ -17,12 +17,12 @@ class ForgotPassword extends Component<Props, State> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
+        <SafeAreaView style={styles.header}>
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
             <Image style={styles.backImage} source={images.back} />
           </TouchableOpacity>
           <Text style={styles.forgotPasswordText}>Forgot Password</Text>
-        </View>
+        </SafeAreaView>
         <Image style={styles.mainImage} source={images.key} />
         <Text style={styles.mainText}>{strings.forgotPasswordText}</Text>
         <CustomInput
@@ -33,7 +33,8 @@ class ForgotPassword extends Component<Props, State> {
         />
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => this.props.navigation.navigate('Verification')}>
+          onPress={() => this.props.navigation.navigate('Verification')}
+          activeOpacity={0.7}>
           <Text style={styles.submitText}>Submit</Text>
         </TouchableOpacity>
       </View>

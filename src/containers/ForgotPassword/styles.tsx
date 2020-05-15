@@ -17,14 +17,14 @@ const styles = StyleSheet.create({
     width: vw(17),
     height: vw(17),
     marginLeft: vw(12),
-    marginTop: vw(36),
+    // marginTop: vw(36),
   },
   forgotPasswordText: {
     fontSize: vw(17),
-    textAlign: 'left',
     color: colors.textInput,
-    marginTop: vw(36),
+    alignSelf:'center',
     marginLeft: vw(88),
+    textAlign:'center'
   },
   mainImage: {
     width: vw(102),

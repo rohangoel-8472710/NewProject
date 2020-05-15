@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.entria.views.RNViewOverflowPackage;
+import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.horcrux.svg.SvgPackage;
@@ -38,6 +40,8 @@ public class MainApplication extends Application implements ReactApplication {
       @SuppressWarnings("UnnecessaryLocalVariable")
       List<ReactPackage> packages = new PackageList(this).getPackages();
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new RNViewOverflowPackage(),
+            new RNCWebViewPackage(),
             new MapsPackage(),
             new LinearGradientPackage(),
             new SvgPackage(),
